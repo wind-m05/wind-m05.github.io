@@ -26,49 +26,32 @@ titles:
 key: page-about
 ---
 
-![TeXt Theme](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg)
+## The purpose of this website
+- Show interesting parts or extensions of school projects.
+- Showing personal engineering projects outside of school.
+- Document my own learning process of courses/tutorials available online regarding Engineering or Machine Learning. 
 
-TeXt is a super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc. Similar to iOS 11 style, it has large and prominent titles, round buttons and cards.
+## Current position
+I am currently studying for my Masters degree [Systems & Control](https://www.tue.nl/en/education/graduate-school/master-systems-and-control/) at the Technical University of Eindhoven.
 
-```javascript
-(() => console.log('Hello, World!'))();
-```
+## Experience
 
-## Features
+* Graduated as Mechatronics engineer at Fontys University of Applied Sciences (Bachelors) 
+* Graduation internship at startup company [HFX Research](https://www.hfx-research.com/en/) whom are specialized in [Switched Reluctance Motors](https://en.wikipedia.org/wiki/Switched_reluctance_motor). I helped them creating a sensorless rotor position data estimator. 
+    * Grade: 9.0/10.0
+* Internship at [VDL Enabaling Technologies Group](https://www.vdletg.com/nl) for whom I have helped revising PLC software for their test environment. This environment is partly physical and partly simulation eventually used for a high-tech vacuum positioning system.  
+    * Grade: 8.5/10.0
 
-- Responsive
-- Semantic HTML
-- Skins
-- Highlight Theme
-- Internationalization
-- Search
-- Table of contents
-- Authors
-- Additional styles (alert, tag, image, icon, button, grid, etc)
-- Extensions (audios, videos, slides, demos)
-- Markdown enhancements ([MathJax](https://www.mathjax.org/), [mermaid](https://mermaidjs.github.io/), [chartjs](http://www.chartjs.org/))
-- Sharing ([AddToAny](https://www.addtoany.com/), [AddThis](https://www.addthis.com/))
-- Comments ([Disqus](https://disqus.com/), [Gitalk](https://gitalk.github.io/), [Valine](https://valine.js.org/en/))
-- Pageview ([LeanCloud](https://leancloud.cn/))
-- Analytics ([Google Analytics](https://analytics.google.com/analytics/web/))
-- RSS ([jekyll-feed](https://github.com/jekyll/jekyll-feed))
+## Expertise
+* Control theory for mechatronic systems
+* Machine learning and its applications within robotics
 
-## Skins
+## Current projects
+* Constructing this website
+* Bayesian optimization for discrete hyperparameters
 
-TeXt has 6 built-in skins, you can also set up your own skin.
+## Future plans
+* Building a self-balancing robot and comparing first principles modeling and PID control with more advanced modeling and control techniques to observe improvement compared to complexity.
 
-| `default` | `dark` | `forest` |
-| --- |  --- | --- |
-| ![Default](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_default.jpg) | ![Dark](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_dark.jpg) | ![Forest](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_forest.jpg) |
-
-| `ocean` | `chocolate` | `orange` |
-| --- |  --- | --- |
-| ![Ocean](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_ocean.jpg) | ![Chocolate](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_chocolate.jpg) | ![Orange](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_orange.jpg) |
-
-### Highlight Theme
-
-TeXt use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highlight theme.
-
-| `tomorrow` | `tomorrow-night` | `tomorrow-night-eighties` | `tomorrow-night-blue` | `tomorrow-night-bright` |
-| --- |  --- | --- | --- |  --- |
-| ![Tomorrow](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow.png) | ![Tomorrow Night](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night.png) | ![Tomorrow Night Eighties](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-eighties.png) | ![Tomorrow Night Blue](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-blue.png) | ![Tomorrow Night Bright](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-bright.png) |
+## Disclaimer
+Posts are solely intended as a documentation of my own learning experiences and are therefore not peer reviewed and should not be used elsewhere. If major mistakes are noticed, please notify me via github. Also be aware that copyright on software as well as course materials are in place and I sometimes will not be able to cover everything in detail.
