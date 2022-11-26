@@ -1,6 +1,7 @@
 ---
+layout: article
 title: "Motion Control on a fourth order system"
-layout: post
+mathjax: true
 ---
 
 ![NARX_model](/assets/images/pato-control/pato_real.jpg)

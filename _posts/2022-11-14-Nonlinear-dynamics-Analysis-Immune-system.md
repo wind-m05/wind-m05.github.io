@@ -1,6 +1,7 @@
 ---
+layout: article
 title: "Nonlinear dynamics of the Immune system"
-layout: post
+mathjax: true
 ---
 
 
