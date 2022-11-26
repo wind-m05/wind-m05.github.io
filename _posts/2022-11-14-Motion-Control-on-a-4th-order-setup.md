@@ -3,6 +3,9 @@ layout: article
 title: "Motion Control on a fourth order system"
 mathjax: true
 tags: System-Identification  test
+show_subscribe: false
+cover: '/assets/images/pato-control/pato_real.jpg'
+show_cover: true
 ---
 
 ![NARX_model](/assets/images/pato-control/pato_real.jpg)
