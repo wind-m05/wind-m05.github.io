@@ -1,6 +1,7 @@
 ---
+layout: article
 title: "Bayesian Optimization for discrete hyperparameters in NARX model "
-layout: post
+mathjax: true
 ---
 
 
