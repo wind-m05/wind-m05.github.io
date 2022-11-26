@@ -2,7 +2,7 @@
 layout: article
 title: "Motion Control on a fourth order system"
 mathjax: true
-tags: System Identification, test
+tags: System-Identification  test
 ---
 
 ![NARX_model](/assets/images/pato-control/pato_real.jpg)
