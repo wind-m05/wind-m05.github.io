@@ -4,8 +4,8 @@ title: "Motion Control on a fourth order system"
 mathjax: true
 tags: System-Identification  test
 show_subscribe: false
-cover: '/assets/images/pato-control/pato_real.jpg'
-show_cover: true
+# cover: '/assets/images/pato-control/pato_real.jpg'
+# show_cover: true
 ---
 
 ![NARX_model](/assets/images/pato-control/pato_real.jpg)
@@ -232,3 +232,4 @@ The final controller has a notch at exactly $57.6 [Hz]$ due to the resonance tha
 
 ## Course material
 4CM00 ~ Control Engineering
+

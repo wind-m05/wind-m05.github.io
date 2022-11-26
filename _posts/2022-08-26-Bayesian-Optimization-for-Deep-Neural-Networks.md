@@ -3,6 +3,7 @@ layout: article
 title: "Bayesian Optimization for discrete hyperparameters in NARX model "
 mathjax: true
 tags: test
+show_subscribe: false
 ---
 
 
