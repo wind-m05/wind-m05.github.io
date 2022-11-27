@@ -147,7 +147,7 @@ $$
 H^*_2=\frac{a_5 a_3-a_4 a_5-a_3 a_7}{a_3 a_6}
 $$
 
-For $H^*_2$ to be $>0$, the numerator of $H^*_2$ must be positive:
+For $$H^*_2$$ to be $>0$, the numerator of $$H^*_2$$ must be positive:
 
 $$
 \begin{align}
@@ -156,9 +156,9 @@ $$
     & \frac{a_4 a_5+a_3 a_7}{a_5 a_3}<1 \\
     & \frac{a_4}{a_3}+\frac{a_7}{a_5}<1
 \end{align}
-$$
+\notag$$
 
-Given that $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$ is a sufficient condition to guarantee the feasibility of $H^*_2$, it will automatically be a sufficient condition for $R^*_2$ because $\frac{a_7}{a_5}\leq 1$ is true if $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$ is true. Consequently, all the fixed points stated in \autoref{eq:feasible_fixed} are feasible due to this sufficient condition.  
+Given that $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$ is a sufficient condition to guarantee the feasibility of $$H^*_2$$, it will automatically be a sufficient condition for $$R^*_2$$ because $$\frac{a_7}{a_5}\leq 1$$ is true if $$\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$$ is true. Consequently, all the fixed points stated in \autoref{eq:feasible_fixed} are feasible due to this sufficient condition.  
 Hence, the dynamical system has three fixed points which can be described in the following form:   
 
 $$
