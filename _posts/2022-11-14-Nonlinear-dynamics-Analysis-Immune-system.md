@@ -48,7 +48,7 @@ $$
 \end{aligned}
 $$
 
-Where $x$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
+Where $H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
 
 $$
@@ -83,7 +83,7 @@ $$
 \end{aligned}
 $$
 
-Finally, $H^{\ast}_2$ can be substituted in the equation $\dot{M}=0$ to obtain $M_{3,4}$:
+Finally, $$H^{\ast}_2$$ can be substituted in the equation $\dot{M}=0$ to obtain $M_{3,4}$:
 
 $$
 \begin{aligned}
