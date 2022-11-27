@@ -38,7 +38,7 @@ All indicated parameters $a_i$ are non-negative numbers. In particular,
 - $a_7$ is the natural natural death rate of resting cells.
 
 # Fixed points and biological feasibility
-The fixed points can be determined by solving the equations of the states, because the fixed points in a system are the solutions of the set given in \autoref{eq:OGmodel} when there is no time dependency. Firstly, the rate of change of density of the hunting cells ($\dot{H}=0$) is solved. 
+The fixed points can be determined by solving the equations of the states, because the fixed points in a system are the solutions of the set given in [modelref]() when there is no time dependency. Firstly, the rate of change of density of the hunting cells ($\dot{H}=0$) is solved. 
 
 $$
 \begin{aligned}
@@ -48,7 +48,7 @@ $$
 \end{aligned}
 $$
 
-$H^*_1$ will be substituted into \autoref{eq:OGmodel} such that $M^*_{1,2}$ can be computed by solving $\dot{M}=0$.
+$H^{*}_1$ will be substituted into [modelref]() such that $M^{*}_{1,2}$ can be computed by solving $\dot{M}=0$.
 
 $$
 \begin{aligned}
@@ -60,7 +60,7 @@ $$
 \end{aligned}
 $$
 
-Next, $H^*_1$ is substituted into \autoref{eq:OGmodel} where $\dot{R}$=0 to obtain  $R_2$ and $R_3$: 
+Next, $H^{*}_1$ is substituted into [modelref]() where $\dot{R}$=0 to obtain  $R_2$ and $R_3$: 
 
 $$
 \begin{aligned}
@@ -71,7 +71,7 @@ $$
 \end{aligned}
 $$
 
-$H^*_2$ can be computed by implementing $R^*_1$ in $\dot{R}$=0:
+$H^{*}_2$ can be computed by implementing $R^{*}_1$ in $\dot{R}$=0:
 
 $$
 \begin{aligned}
@@ -82,7 +82,7 @@ $$
 \end{aligned}
 $$
 
-Finally, $H^*_2$ can be substituted in the equation $\dot{M}$=0 to obtain $M_{3,4}$:
+Finally, $H^{*}_2$ can be substituted in the equation $\dot{M}$=0 to obtain $M_{3,4}$:
 
 $$
 \begin{aligned}
@@ -100,19 +100,19 @@ $$
 & (M^{*}_2,H^{*}_1,R^{*}_2)=(\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}},0,0)\\
 & (M^{*}_1,H^{*}_1,R^{*}_3)=(\frac{1}{2}+\sqrt{\frac{1}{4}+\frac{1}{a_1}},0,1-\frac{a_7}{a_5})\\
 & (M^{*}_2,H^{*}_1,R^{*}_3)=(\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}},0,1-\frac{a_7}{a_5})\\
-& (M^*_3,H^*_2,R^*_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^*-1)+ \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2^*-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})\\
-& (M^{*}_4,H^{*}_2,R^{*}_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^*-1)- \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})\\
+& (M^{*}_3,H^{*}_2,R^{*}_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^{*}-1)+ \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2^{*}-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})\\
+& (M^{*}_4,H^{*}_2,R^{*}_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^{*}-1)- \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})\\
 \end{aligned}
 $$
 
-The fixed points stated in the equations above need to be checked on feasibility. In other words, the values of the fixed points require to be in set $\mathcal{P}$ stated in \autoref{eq:P_set}:
+The fixed points stated in the equations above need to be checked on feasibility. In other words, the values of the fixed points require to be in set $\mathcal{P}$ stated in [setp]()
 
 
-- Since $R^*_2$ and $H^*_1$ are equal to zero, they are feasible.
-- Because all $a_i$ must be positive, $R^*_1$ is also feasible.
-- $H^*_2$ and $R^*_3$ are feasible due to the sufficient condition: $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$. The reasoning behind this condition being sufficient will be further explained in question 3.
-- Parameter $a_1$ and variables $M^*_{1,2}$ must be positive to be in set $\mathcal{P}$. As a result, only $M^*_1$ is feasible because: $\frac{1}{2}<\sqrt{\frac{1}{4}+\frac{1}{a_1}}$ for any $a_1>0$. For this reason, $M^*_{2}=\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}}$ will be negative and hence not feasible. 
-- Parameters $a_1,...,a_7$ and variables $M^*_{3,4}$ must be positive for $M^*_{3,4}$ to be feasible. To prove this, $\frac{a_2}{a_1}H_2^*-1$ is repaced by variable y.  $M^*_{3,4}=\frac{1}{2}y \pm \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$. Here $\frac{1}{2}y < \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$ for every $y\in \mathbb{R}$ and $a_1>0$. Hence, $M^*_{3}$ will be positive meaning it is feasible and $M^*_{4}$ negative meaning it is unfeasible.   
+- Since $R^{\ast}_2$ and $H^{\ast}_1$ are equal to zero, they are feasible.
+- Because all $a_i$ must be positive, $R^{\ast}_1$ is also feasible.
+- $H^{\ast}_2$ and $R^{\ast}_3$ are feasible due to the sufficient condition: $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$. The reasoning behind this condition being sufficient will be further explained in question 3.
+- Parameter $a_1$ and variables $M^{\ast}_{1,2}$ must be positive to be in set $\mathcal{P}$. As a result, only $M^{\ast}_1$ is feasible because: $\frac{1}{2}<\sqrt{\frac{1}{4}+\frac{1}{a_1}}$ for any $a_1>0$. For this reason, $M^{\ast}_{2}=\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}}$ will be negative and hence not feasible. 
+- Parameters $a_1,...,a_7$ and variables $M^{\ast}_{3,4}$ must be positive for $M^{\ast}_{3,4}$ to be feasible. To prove this, $\frac{a_2}{a_1}H_2^{\ast}-1$ is repaced by variable y.  $M^{\ast}_{3,4}=\frac{1}{2}y \pm \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$. Here $\frac{1}{2}y < \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$ for every $y\in \mathbb{R}$ and $a_1>0$. Hence, $M^{\ast}_{3}$ will be positive meaning it is feasible and $M^{\ast}_{4}$ negative meaning it is unfeasible.   
 
 
 Taking into account all the results above, the following fixed points are in set $\mathcal{P}$: 
@@ -124,11 +124,6 @@ $$
     & (M^*_3,H^*_2,R^*_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^*-1)+ \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2^*-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})
 \end{align}
 $$
-
-
-
-
-
 
 
 
