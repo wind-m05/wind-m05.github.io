@@ -48,9 +48,10 @@ $$
 \end{aligned}
 $$
 
+
 $H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,2}$ can be computed by solving $\dot{M}=0$.
 
-$$
+<!-- $$
 \begin{aligned}
 & 1+a_1M(1-M)-a_2 M H=0 \\ 
 & H^{\ast}_1=0\\
@@ -149,4 +150,4 @@ $$
 ## Books
 ## Websites
 ## Course material
-5CSA0 ~ Modeling Dynamics
+5CSA0 ~ Modeling Dynamics -->
