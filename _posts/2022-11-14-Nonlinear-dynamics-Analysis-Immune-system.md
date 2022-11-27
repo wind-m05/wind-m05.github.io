@@ -131,9 +131,49 @@ $$
 \end{align}
 $$
 
+## Feasibility
+The positive invariant set $$\mathcal{P}$$ is defined to be the following:
 
+$$
+    \mathcal{P} := \{(M,H,R) \in \mathbb{R}^3 \;|\; M \geq 0, H \geq 0, R \geq 0 \}
+$$
+Positive invariance implies here that if the initial condition is inside the set, it will never leave the set. Since we are dealing with a physical system, densities cannot be negative, therefore all fixed points must lie within the set P to be feasible. This is the case under the following conditions:
 
+- Fixed point $$(M^{*}_1,H^{*}_1,R^{*}_2)$$ is feasible for every $$a_i>0$$.
+- Fixed point $$(M^{*}_1,H^{*}_1,R^{*}_3)$$ is feasible for $$a_i>0$$ , except for $$R_2$$ which is only feasible if $$\frac{a_7}{a_5} \leq 1$$. 
+- Fixed point $$(M^{*}_3,H^{*}_2,R^{*}_1)$$, parameters $$a_3,a_4,a_5$$ and $$a_7$$ in $$H_2$$ needs to be in a certain ratio to be feasible since $$H_2$$ must be positive. Consequently, the following sufficient condition can be derived:
 
+$$
+H^*_2=\frac{a_5 a_3-a_4 a_5-a_3 a_7}{a_3 a_6}
+$$
+
+For $H^*_2$ to be $>0$, the numerator of $H^*_2$ must be positive:
+
+$$
+\begin{align}
+    & a_5 a_3-a_4 a_5-a_3 a_7>0 \\
+    & a_4 a_5+a_3 a_7<a_5 a_3 \\
+    & \frac{a_4 a_5+a_3 a_7}{a_5 a_3}<1 \\
+    & \frac{a_4}{a_3}+\frac{a_7}{a_5}<1
+\end{align}
+$$
+
+Given that $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$ is a sufficient condition to guarantee the feasibility of $H^*_2$, it will automatically be a sufficient condition for $R^*_2$ because $\frac{a_7}{a_5}\leq 1$ is true if $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$ is true. Consequently, all the fixed points stated in \autoref{eq:feasible_fixed} are feasible due to this sufficient condition.  
+Hence, the dynamical system has three fixed points which can be described in the following form:   
+
+$$
+E_1^*=\left(M_1^*, 0,0\right), \quad E_2^*=\left(M_2^*, 0, R_2^*\right), \quad E_3^*=\left(M_3^*, H_3^*, R_3^*\right)
+$$
+
+These fixed points can be biological interpreted as follows.
+
+- $$E_1^*$$ The density of Malignant cells $\dot{M}$ can only be externally influenced by the Hunting cells due to the rate of destruction of tumor cells $a_2$. This specific fixed point occurs when H and R are zero, meaning that this is the maximum malignant cell density that is constant and since $M=0.1$ is considered reasonable, this fixed point can therefore be labeled as dangerous. In this case the organism does not have an active immune system.
+    
+- $$E_2^*$$ The dynamical behavior of the Resting cells and the behavior of the Malignant cells do not directly depend on each other. they are coupled via the density of hunting cells. At the fixed point, the resting cells grow as quickly as they die. The conversion rate $a_6$ from hunting cells to resting cells and resting cells to hunting cells $a_3$ will only be activated when the organism has hunting cells to begin with.
+
+- $$E_3^*$$ Every point in set $\mathcal{P}$ which has a density bigger than zero, will converge to this fixed point. The hunting cells hunt down the Malignant cells with a destruction rate of $a_2$. The hunting cells will grow because of the conversion rate from resting cells to hunting cells $a_3$. Depending on the amount of initial resting cells, the hunting cells will increase rapidly until they reach a maximum due to the natural death rate $a_4$. At this point the Hunting cells will be converted back into Resting cells due to the conversion rate from Hunting cells to Resting cells $a_6$. After this process, a steady state is reached where the malignant cells are within a reasonable amount. Biologically, this is the fixed point that occurs in a healthy immune system that naturally declines malignant cell growth.
+
+# Simulation
 
 
 
