@@ -50,13 +50,13 @@ $$ -->
 
 Next, $H^{\ast}_1$ is substituted into [modelref]() where $\dot{R}=0$ to obtain  $R_2$ and $R_3$: 
 
-$H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,2}$ can be computed by solving $\dot{M}=0$.
+$H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
 
-$H^{*}_1$ will be substituted into [modelref]() such that $M^{*}_{1,2}$ can be computed by solving $\dot{M}=0$.
+$H^{*}_1$ will be substituted into [modelref]() such that $M^{*}_{1, \ 2}$ can be computed by solving $\dot{M}=0$.
 
 
-$H^{\ast}_1$ will be substituted into [modelref]() such that $M^{*}_{1,2}$ can be computed by solving $\dot{M}=0$.
+$H^{\ast}_1$ will be substituted into [modelref]() such that $M^{*}_{1, \ 2}$ can be computed by solving $\dot{M}=0$.
 
 <!-- $$
 \begin{aligned}
