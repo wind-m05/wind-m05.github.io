@@ -58,6 +58,8 @@ $H^{*}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ c
 
 first words then $H^{*}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
+first words then will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
+
 
 
 <!-- $$
