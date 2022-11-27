@@ -2,7 +2,7 @@
 layout: article
 title: "Motion Control on a fourth order system"
 mathjax: true
-tags: System-Identification  test
+tags: System-Identification Loop-shaping Feedforward
 show_subscribe: false
 # cover: '/assets/images/pato-control/pato_real.jpg'
 # show_cover: true
@@ -71,13 +71,14 @@ Since every PATO setup is different and exact terms for the damping as well as t
 
 Where $h(t)$ is the to be identified plant and $v(t)$ is the noise which is always present, $u(t)$ is the input to the plant and $y(t)$ is the output of the plant. After Fourier transforming the signals we end up with:
 
-$$ Y(f) = V(f) + H(f)U(f)$$
+$$ Y(f) = V(f) + H(f)U(f) $$
 
 After multiplying both sides with the complex conjugate of the input from the right we get the following equation.
 
-$$ Y(f)U^*(f) = V(f)U^*(f) + H(f)U(f)U^*(f)$$
+$$ Y(f)U^{\ast}(f) = V(f)U^{\ast}(f) + H(f)U(f)U^{\ast}(f) $$
 
-Where $Y(f)U^*(f)$ is the [cross power spectral density](https://en.wikipedia.org/wiki/Spectral_density) (CPSD) between input and output and $V(f)U^*(f)$ is the CPSD of the noise and the input and $U(f)U^*(f)$ is the [auto power spectral density](https://en.wikipedia.org/wiki/Spectral_density) (APSD) of the input. The APSD is known and the CPSD of the output and input can also be calculated. However, to determine $H(f)$, the CPSD of the input and the noise should be as small as possible to get an estimate of the plant. In other words, the signals must not be correlated, for that reason white noise in the input is used. This way, the CPSD of the input and noise approach zero for sufficiently long measurement time 
+
+Where $Y(f)U^{\ast}(f)$ is the [cross power spectral density](https://en.wikipedia.org/wiki/Spectral_density) (CPSD) between input and output and $V(f)U^{\ast}(f)$ is the CPSD of the noise and the input and $U(f)U^{\ast}(f)$ is the [auto power spectral density](https://en.wikipedia.org/wiki/Spectral_density) (APSD) of the input. The APSD is known and the CPSD of the output and input can also be calculated. However, to determine $H(f)$, the CPSD of the input and the noise should be as small as possible to get an estimate of the plant. In other words, the signals must not be correlated, for that reason white noise in the input is used. This way, the CPSD of the input and noise approach zero for sufficiently long measurement time 
 
 ## Design choices
 ### White noise
