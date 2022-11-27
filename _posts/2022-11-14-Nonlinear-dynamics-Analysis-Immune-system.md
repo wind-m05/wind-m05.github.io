@@ -109,9 +109,13 @@ The fixed points stated in the equations above need to be checked on feasibility
 
 
 - Since $R^{\ast}_2$ and $H^{\ast}_1$ are equal to zero, they are feasible.
+
 - Because all $a_i$ must be positive, $R^{\ast}_1$ is also feasible.
+
 - $H^{\ast}_2$ and $R^{\ast}_3$ are feasible due to the sufficient condition: $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$. The reasoning behind this condition being sufficient will be further explained in question 3.
-- Parameter $a_1$ and variables $M^{\ast}_{1,2}$ must be positive to be in set $\mathcal{P}$. As a result, only $M^{\ast}_1$ is feasible because: $\frac{1}{2}<\sqrt{\frac{1}{4}+\frac{1}{a_1}}$ for any $a_1>0$. For this reason, $M^{\ast}_{2}=\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}}$ will be negative and hence not feasible. 
+
+- Parameter $a_1$ and variables $M^{\ast}_{1,2}$ must be positive to be in set $\mathcal{P}$. As a result, only $M^{\ast}_1$ is feasible because: $\frac{1}{2}<\sqrt{\frac{1}{4}+\frac{1}{a_1}}$ for any $a_1>0$. For this reason, $M^{\ast}_{2}=\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}}$ will be negative and hence not feasible.
+
 - Parameters $a_1,...,a_7$ and variables $M^{\ast}_{3,4}$ must be positive for $M^{\ast}_{3,4}$ to be feasible. To prove this, $\frac{a_2}{a_1}H_2^{\ast}-1$ is repaced by variable y.  $M^{\ast}_{3,4}=\frac{1}{2}y \pm \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$. Here $\frac{1}{2}y < \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$ for every $y\in \mathbb{R}$ and $a_1>0$. Hence, $M^{\ast}_{3}$ will be positive meaning it is feasible and $M^{\ast}_{4}$ negative meaning it is unfeasible.   
 
 
