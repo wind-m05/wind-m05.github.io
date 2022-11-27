@@ -48,7 +48,7 @@ $$
 \end{aligned}
 $$
 
- $H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
+Where $x$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
 
 $$
