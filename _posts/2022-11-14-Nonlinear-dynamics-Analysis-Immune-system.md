@@ -187,6 +187,424 @@ These fixed points can be biological interpreted as follows.
 # Conclusion & Discussion
 ## Conclusion
 ## Discussion
+
+
+# Software
+## Main code
+~~~  matlab
+%% 5CSA0 Tumor growth assignment
+clc, clear all, close all
+
+%% Fixed points
+syms M H R a1 a2 a3 a4 a5 a6 a7
+
+f1 = 1+a1*M*(1-M)-a2*M*H == 0;
+f2 = a3*H*R-a4*H == 0;
+f3 = a5 * R * (1-R) -a6*H*R-a7*R == 0;
+solved = solve([f1,f2,f3],[M,H,R]);
+% Solve system of equations to find fixed points
+for i = 1:length(solved.H)
+xstar = [solved.M(i),solved.H(i),solved.R(i)];      
+xstar_mat{i,1} = xstar;
+end
+% Reorder to be the same as in the report
+xstar_mat([1 2],:) = xstar_mat([2 1],:);
+xstar_mat([3 5],:) = xstar_mat([5 3],:);
+
+%% Check biological feasibility
+% For all conditions, positive valued states must be achieved at the fixed points
+cd1 = [4.5 1 0.5 0.4 0.7 0.2 0.4];
+cd2 = [3.5 1 5.0 0.4 0.7 0.1 0.1];
+cd3 = [3.0 1 4.8 0.4 3.7 1.9 0.1];
+cd = [cd1;cd2;cd3];
+coef = [a1 a2 a3 a4 a5 a6 a7];
+
+% Check biological feasibility of the conditions
+f4 = (a4/a3) + (a7/a5); % Constraint to be biologically feasible
+for k = 1:length(cd(:,1))
+    if subs(f4,coef,cd(k,:)) < 1
+    feasiblity(k) = 1;
+    else
+    feasiblity(k) = 0;
+    end
+end
+
+% Check all fixed point values with conditions
+for k = 1:length(cd(:,1))
+    for i = 1:length(xstar_mat)
+    sol_xstar = double(subs(xstar_mat{i},coef,cd(k,:)));
+    sol_xstar_mat{i,k} = sol_xstar;
+    end
+end
+
+% Remove negative fixed points
+sol_xstar_mat_reduced = sol_xstar_mat([1 3 5],:);
+
+% Stability check of the biological feasible fixed points
+syms f1_lin f2_lin f3_lin 
+f1_lin = 1+a1*M*(1-M)-a2*M*H; 
+f2_lin = a3*H*R-a4*H; 
+f3_lin = a5 * R * (1-R) -a6*H*R-a7*R;
+A = jacobian([f1_lin,f2_lin,f3_lin],[M,H,R]);
+
+% Loop over the coditions (k) and loop over the biologically feasible fixed
+% points (i)
+for k = 1:length(cd(:,1))
+    for i = 1:length(sol_xstar_mat_reduced(1,:))
+    A_stab{i,k} = eig(subs(A,[M H R],[sol_xstar_mat_reduced{i,k}]));
+    A_stab_numeric{i,k} = double(eig(subs(A,[M,H,R,coef],[sol_xstar_mat_reduced{i,k},cd(k,:)])));
+    end
+end
+% All the eigen values per fixed point per condition in (i_(3x1),k) format
+A_eig = cell2mat(A_stab_numeric); 
+A_num_cd3 = double(subs(A,[M H R coef],[sol_xstar_mat_reduced{3,3} cd(3,:)]));
+
+%% Simulation
+t = 0:0.01:100;
+% Define initial conditions with first a linear spacing and then some
+% arbitrary points of interest
+x0_1 = [(0:0.5:2)';1;4;4  ;4;4]';
+x0_2 = [(0:0.5:2)';0;0;0.1;0.1;0.1]';
+x0_3 = [(0:0.5:2)';2;0;0.1;0.5;2]';
+scale_factor = 0.02; 
+x0 = [x0_1;x0_2;x0_3];
+[x1,x2,x3] = meshgrid(0:0.25:2);
+
+%%% Phase plot %%%
+
+for k = 1:length(cd(:,1))
+    for p = 1:length(x0)
+        x = cell_interaction(t,x0(:,p),cd(k,:));
+        solx{p,k} = [x(:,1) x(:,2) x(:,3)];
+    end
+    % 3D phase plot
+    x1dot = 1+cd(k,1).*x1.*(1-x1)-cd(k,2).*x1.*x2; 
+    x2dot= (cd(k,3).*x2.*x3)-cd(k,4).*x2; 
+    x3dot= cd(k,5).*x3.*(1-x3)-(cd(k,6).*x2.*x3)-(cd(k,7).*x3); 
+    figure()
+    quiver3(x1,x2,x3,x1dot*scale_factor,x2dot*scale_factor,x3dot*scale_factor,'autoscale','off')
+    grid on; axis image;
+    xlabel('Malignant cells density')
+    ylabel('Hunting cells density')
+    zlabel('Resting cells density')
+end
+
+%%% Time plot %%%
+
+for k = 1:length(cd(:,1))
+figure()
+subplot(311)
+    for i = 1:length(solx(:,1))
+    plot(t,solx{i,k}(:,1))
+    hold on; grid on
+    end
+    str = sprintf("States for condition %d and for all intital conditions",k);
+    title(str)
+    ylabel('Density of malignant cells')
+    subplot(312)
+
+    for i = 1:length(solx(:,1))
+    plot(t,solx{i,k}(:,2))
+    hold on; grid on
+    end
+
+    ylabel('Density of Hunting cells')
+    subplot(313)
+    
+    for i = 1:length(solx(:,1))
+    plot(t,solx{i,k}(:,3))
+    hold on; grid on
+    legends{i} = sprintf('X0(%d)', i);
+    end
+
+    xlabel('Time [s]')
+    legend(legends)
+    ylabel('Density of Resting cells')
+    plotTweak();
+end
+
+%%% 3D trajetory plot %%%
+
+for k = 1:length(cd(:,1))
+    figure()
+    for i = 1:length(solx(:,1))
+    plot3(solx{i,k}(:,1),solx{i,k}(:,2),solx{i,k}(:,3))
+    hold on
+    end
+    plot3(sol_xstar_mat{1,k}(1),sol_xstar_mat{1,k}(2),sol_xstar_mat{1,k}(3),'r.', 'MarkerSize', 15)
+    plot3(sol_xstar_mat{3,k}(1),sol_xstar_mat{3,k}(2),sol_xstar_mat{3,k}(3),'r.', 'MarkerSize', 15)
+    plot3(sol_xstar_mat{5,k}(1),sol_xstar_mat{5,k}(2),sol_xstar_mat{5,k}(3),'r.', 'MarkerSize', 15)
+    grid on
+    xlabel('Malignant cells density')
+    ylabel('Hunting cells density')
+    zlabel('Resting cells density')
+    plotTweak();
+end
+
+
+%% Time delayed system Q8
+t = (0:0.01:100);
+% delay_bif = 0.84932; % Include to see crash bifurcation
+delay_span = (0.1:0.1:0.8)';
+delay_span = [delay_span]; %[delay_span;delay_bif];
+delay = [delay_span delay_span delay_span];
+% delay = [0.01 0.01 0.01]'
+x0 = [1 1 1]';
+% delay = [0.1 0.1 0.1];
+for i = 1:length(delay(:,1))
+sol = d_cell_interaction(t,delay(i,:),x0,cd(3,:));
+sol_data{i} = [sol.x;sol.y];
+end
+
+figure; clear legends
+for k = 1:length(delay(:,1))
+plot3(sol_data{k}(2,:),sol_data{k}(3,:),sol_data{k}(4,:))
+xlabel('Malignant cells density')
+ylabel('Hunting cells density')
+zlabel('Resting cells density')
+hold on
+end
+plot3(sol_xstar_mat{1,3}(1),sol_xstar_mat{1,3}(2),sol_xstar_mat{1,3}(3),'r.', 'MarkerSize', 15)
+plot3(sol_xstar_mat{3,3}(1),sol_xstar_mat{3,3}(2),sol_xstar_mat{3,3}(3),'r.', 'MarkerSize', 15)
+plot3(sol_xstar_mat{5,3}(1),sol_xstar_mat{5,3}(2),sol_xstar_mat{5,3}(3),'r.', 'MarkerSize', 15)  
+legend('\tau = 0.1','\tau = 0.2','\tau = 0.3','\tau = 0.4','\tau = 0.5','\tau = 0.6','\tau = 0.7','\tau = 0.8','\tau bif.')
+grid on
+
+figure;
+for i = 1:length(delay(:,1))
+plot(sol_data{i}(1,:),[sol_data{i}([2 4],:)])
+title('Time response of \tau = 0.1.');
+xlabel('time t');
+ylabel('solution y');
+legend('M','H','R')
+hold on
+end
+
+figure;
+for i = 1:length(delay(:,1))
+subplot(311)
+plot(sol_data{i}(1,:),sol_data{i}(2,:))
+% title('Time responses of (M,H,R) for different \tau');
+ylabel('Malignant cell density');
+hold on
+grid on
+subplot(312)
+plot(sol_data{i}(1,:),sol_data{i}(3,:))
+ylabel('Hunting  cell density');
+grid on
+hold on
+subplot(313)
+plot(sol_data{i}(1,:),sol_data{i}(4,:))
+ylabel('Resting cell density');
+grid on
+hold on
+xlabel('Time [s]');
+end
+legend('\tau = 0.1','\tau = 0.2','\tau = 0.3','\tau = 0.4','\tau = 0.5','\tau = 0.6','\tau = 0.7','\tau = 0.8')
+
+%% Lyapunov function
+syms x1 x2 x3 p11 p12 p13 p22 p23 p33
+Q = eye(3);
+x1_star = 0.8260;
+x2_star = 1.7325;
+x3_star = 0.0833;
+xi = [x1-x1_star;x2-x2_star;x3-x3_star];
+x = [x1;x2;x3];
+P = [p11 p12 p13;
+     p12 p22 p23
+     p13 p23 p33];
+
+f = transpose(A_num_cd3)*P+P*A_num_cd3;
+solveforP = f+Q == 0;
+solved_p = solve(solveforP, [p11 p12 p13 p22 p23 p33]);
+
+P = double([solved_p.p11 solved_p.p12 solved_p.p13;
+     solved_p.p12 solved_p.p22 solved_p.p23;
+     solved_p.p13 solved_p.p23 solved_p.p33]);
+V = transpose(xi)*P*(xi);
+
+%% Stabilizing controller
+% Find fixed point including u_star 
+syms M_star H_star R_star a1 a2 a3 a4 a5 a6 a7 u_star 
+M_star_num = 0.1;
+c = subs(coef,coef,cd3);
+f1 = 1+c(1)*M_star_num*(1-M_star_num)-c(2)*M_star_num*H_star == 0;
+f2 = c(3)*H_star*R_star-c(4)*H_star == 0;
+f3 = c(5)*R_star*(1-R_star)-c(6)*H_star*R_star-c(7)*R_star+u_star == 0;
+
+[H_star_num,u_star_num,R_star_num] = solve([f1,f2,f3],[H_star,u_star,R_star]);
+fixed_stab = double([M_star_num,H_star_num,R_star_num,u_star_num]);
+
+% Linearize
+f1_lin = 1+c(1)*M_star*(1-M_star)-c(2)*M_star*H_star;
+f2_lin = c(3)*H_star*R_star-c(4)*H_star;
+f3_lin = c(5)*R_star*(1-R_star)-c(6)*H_star*R_star-(c(7)*R_star)+u_star;
+
+A = jacobian([f1_lin,f2_lin,f3_lin],[M_star,H_star,R_star]);
+B = jacobian([f1_lin,f2_lin,f3_lin],u_star);
+
+A_num = double(subs(A,[M_star H_star R_star u_star],fixed_stab));
+B_num = double(B);
+
+% Check controllability
+Contr_mat = ctrb(A_num,B_num);
+
+% Design K such that A-BK is Hurwitz
+% pole_loc = [-20 -21 -22];
+% pole_loc = [-1 -2 -10]; 
+pole_loc = [-1 -10 -0.1];
+K = place(A_num,B_num,pole_loc);
+hurwitz = eig(A_num-B_num*K);
+F = -K;
+% Check whether the controlled system stays in positive invariant set P
+states_star = fixed_stab(1:end-1);
+input_star = fixed_stab(end);
+
+syms k1 k2 k3 M H R
+k = [k1 k2 k3];
+f1 = -k * [M-fixed_stab(1);-fixed_stab(2);-fixed_stab(3)]+fixed_stab(4) > 0;
+f2 = -k * [-fixed_stab(1);H-fixed_stab(2);-fixed_stab(3)]+fixed_stab(4) > 0;
+f3 = -k * [-fixed_stab(1);-fixed_stab(2);R-fixed_stab(3)]+fixed_stab(4) > 0;
+
+%% Simulation controlled system
+t = 0:0.001:100;
+% Define initial conditions with first a linear spacing and then some
+% arbitrary points of interest
+xi0_1= (-0.05:0.025:0.05); % Perturbation of Malignant cells
+xi0_2 = (-0.05:0.025:0.05); % Perturbation of Hunting cells
+xi0_3 = (-0.05:0.025:0.05); % Perturbation of Resting cells
+
+xi0 = [xi0_1;xi0_2;xi0_3];
+
+%%% solver %%%
+
+for p = 1:length(xi0)
+    x = stab_cell_interaction(t,xi0(:,p),A_num,B_num,K);
+    solx_stab{p} = [x(:,1) x(:,2) x(:,3) ];
+end
+
+%%% 3D trajetory plot %%%
+
+figure()
+for i = 1:length(solx_stab)
+plot3(solx_stab{i}(:,1),solx_stab{i}(:,2),solx_stab{i}(:,3))
+hold on
+end
+grid on
+xlabel('Malignant cells density perturbation')
+ylabel('Hunting cells density perturbation')
+zlabel('Resting cells density perturbation')
+plotTweak();
+
+%% From perturbation to actual state simulation plot 3D
+
+figure()
+for i = 1:length(solx_stab)
+plot3(solx_stab{i}(:,1)+M_star_num,solx_stab{i}(:,2)+double(H_star_num),solx_stab{i}(:,3)+double(R_star_num))
+hold on
+end
+plot3(fixed_stab(1),fixed_stab(2),fixed_stab(3),'r.', 'MarkerSize', 15)
+grid on
+xlabel('Malignant cells density')
+ylabel('Hunting cells density')
+zlabel('Resting cells density')
+legend('\xi = -0.05','\xi=-0.025','\xi=0','\xi=0.025','\xi=0.05')
+plotTweak();
+
+F = -K;
+
+% Plot input
+figure()
+for i = 1:length(solx_stab)
+u_traj =  fixed_stab(4) - K(1)*[solx_stab{i}(:,1)]-K(2)*[solx_stab{i}(:,2)]- K(3)*[solx_stab{i}(:,3)];
+plot(t,u_traj)
+hold on
+grid on
+end
+xlabel('Time [s]')
+ylabel('Control input u(t)')
+legend('\xi = -0.05','\xi=-0.025','\xi=0','\xi=0.025','\xi=0.05')
+plotTweak();
+
+%% Commands
+% set(fig,'renderer','Painters')
+% saveas(fig,'figName','epsc')
+~~~
+## Functions
+
+### cell_interaction.m
+~~~ matlab
+function x = cell_interaction(t,x0,cd)
+[t,x] = ode45(@coupledfun,t,x0,[],cd);
+end
+~~~
+
+### coupledfun.m
+~~~ matlab
+function dxdt = coupledfun(t,x0,cd)
+x1 = x0(1);
+x2 = x0(2);
+x3 = x0(3);
+dx1dt = 1+cd(1)*x1*(1-x1)-cd(2)*x1*x2;
+dx2dt = cd(3)*x2*x3-cd(4)*x2;
+dx3dt = cd(5)*x3*(1-x3)-cd(6)*x2*x3-cd(7)*x3;
+dxdt = [dx1dt;dx2dt;dx3dt];
+end
+~~~
+
+### d_cell_interaction.m
+~~~ matlab
+function y = d_cell_interaction(t,delay,x0,cd)
+%D_CELL_INTERACTION Summary of this function goes here
+%   Detailed explanation goes here
+y = dde23(@d_coupledfun,delay,x0,[t(1), t(end)],[],cd);
+end
+~~~
+
+### d_history.m
+~~~ matlab
+function s = d_history(t,x0)
+% Constant history function for DDEX1.
+s = x0;
+end
+~~~
+
+### d_coupledfun.m
+~~~ matlab
+function dydt = d_coupledfun(t,y,Z,cd)
+% Differential equations function for DDEX1.
+x_lagM = Z(1);
+x_lagH = Z(2);
+x_lagR = Z(3);
+x1 = y(1);
+x2 = y(2);
+x3 = y(3);
+dx1dt = 1+cd(1)*x1*(1-x1)-cd(2)*x1*x2;
+dx2dt = cd(3)*x_lagH*x_lagR-cd(4)*x2;
+dx3dt = cd(5)*x3*(1-x3)-cd(6)*x2*x3-cd(7)*x3;
+dydt = [dx1dt;dx2dt;dx3dt];
+~~~
+
+### stab_cell_interaction.m
+~~~ matlab
+function x = stab_cell_interaction(t,x0,A_num,B_num,K)
+[t,x] = ode45(@stab_coupledfun,t,x0,[],A_num,B_num,K);
+end
+~~~
+
+### stab_coupledfun.m
+~~~ matlab
+function dxdt = stab_coupledfun(t,x0,A_num,B_num,K)
+x1 = x0(1);
+x2 = x0(2);
+x3 = x0(3);
+dx1dt = A_num(1,:)*[x1;x2;x3] + B_num(1)*(-K*[x1;x2;x3]);
+dx2dt = A_num(2,:)*[x1;x2;x3] + B_num(2)*(-K*[x1;x2;x3]);
+dx3dt = A_num(3,:)*[x1;x2;x3] + B_num(3)*(-K*[x1;x2;x3]);
+dxdt = [dx1dt;dx2dt;dx3dt];
+end
+~~~
+
 # Resources
 ## Books
 ## Websites
