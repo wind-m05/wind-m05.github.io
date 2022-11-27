@@ -56,7 +56,7 @@ $H^{\ast}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}
  
 $H^{*}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
-$\;$ $H^{*}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
+first words then $\;$ $H^{*}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
 
 
