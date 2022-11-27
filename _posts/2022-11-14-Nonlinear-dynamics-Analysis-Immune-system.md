@@ -48,22 +48,13 @@ $$
 \end{aligned}
 $$
 
-$H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{12}$
-
 $H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
-$H^{\ast}_1$ will be substituted into such that $M^{\ast}_{1,\ 2}$ can be computed by solving.
+ $H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
+
+ $H^*_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
 
-$H^{\ast}_1$ will be substituted into  such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
-
-
-$H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
-
-will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
-
-
-$H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
 <!-- $$
 \begin{aligned}
