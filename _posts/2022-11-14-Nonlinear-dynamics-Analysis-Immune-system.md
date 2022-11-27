@@ -40,13 +40,13 @@ All indicated parameters $a_i$ are non-negative numbers. In particular,
 # Fixed points and biological feasibility
 The fixed points can be determined by solving the equations of the states, because the fixed points in a system are the solutions of the set given in [modelref]() when there is no time dependency. Firstly, the rate of change of density of the hunting cells $\dot{H}=0$ is solved. 
 
-$$
+<!-- $$
 \begin{aligned}
 & a_3 H R-a_4 H=0 \\ 
 & H(a_3 R-a_4)=0 \\ 
 & H^{\ast}_1=0 \vee R^{\ast}_1=\frac{a_4}{a_3}
 \end{aligned}
-$$
+$$ -->
 
 $H^{\ast}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
@@ -56,7 +56,7 @@ $H^{\ast}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}
  
 $H^{*}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
-first words then $\;$ $H^{*}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
+first words then $H^{*}_{1}$ will be substituted into [modelref]() such that $M^{\ast}_{1,\ 2}$ can be computed by solving $\dot{M}=0$.
 
 
 
