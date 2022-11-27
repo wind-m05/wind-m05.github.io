@@ -38,13 +38,13 @@ All indicated parameters $a_i$ are non-negative numbers. In particular,
 - $a_7$ is the natural natural death rate of resting cells.
 
 # Fixed points and biological feasibility
-The fixed points can be determined by solving the equations of the states, because the fixed points in a system are the solutions of the set given in [modelref]() when there is no time dependency. Firstly, the rate of change of density of the hunting cells ($\dot{H}=0$) is solved. 
+The fixed points can be determined by solving the equations of the states, because the fixed points in a system are the solutions of the set given in [modelref]() when there is no time dependency. Firstly, the rate of change of density of the hunting cells $\dot{H}=0$ is solved. 
 
 $$
 \begin{aligned}
 & a_3 H R-a_4 H=0 \\ 
 & H(a_3 R-a_4)=0 \\ 
-& H^\ast_1=0 \vee R^\ast_1=\frac{a_4}{a_3}
+& H^{\ast}_1=0 \vee R^{\ast}_1=\frac{a_4}{a_3}
 \end{aligned}
 $$
 
@@ -53,10 +53,10 @@ $H^{\ast}_1$ will be substituted into [modelref]() such that $M^{\ast}_{1,2}$ ca
 $$
 \begin{aligned}
 & 1+a_1M(1-M)-a_2 M H=0 \\ 
-&H^\ast_1=0\\
+& H^{\ast}_1=0\\
 & 1+a_1 M-a_1 M^2=0 \\ 
 & M^2-M -\frac{1}{a_1}\\ 
-& M^\ast_{1,2}=\frac{1}{2}\pm\sqrt{\frac{1}{4}+\frac{1}{a_1}} 
+& M^{\ast}_{1,2}=\frac{1}{2}\pm\sqrt{\frac{1}{4}+\frac{1}{a_1}} 
 \end{aligned}
 $$
 
@@ -64,10 +64,10 @@ Next, $H^{\ast}_1$ is substituted into [modelref]() where $\dot{R}=0$ to obtain 
 
 $$
 \begin{aligned}
-& H^\ast_1=0\\
+& H^{\ast}_1=0\\
 & a_5 R(1-R) - a_7 R=0 \\
 & R(a_5-a_5 R -a_7)=0 \\
-& R^\ast_2=0 \vee R^\ast_3=1-\frac{a_7}{a_5}
+& R^{\ast}_2=0 \vee R^{\ast}_3=1-\frac{a_7}{a_5}
 \end{aligned}
 $$
 
@@ -75,10 +75,10 @@ $H^{\ast}_2$ can be computed by implementing $R^{\ast}_1$ in $\dot{R}=0$:
 
 $$
 \begin{aligned}
-& R^\ast_1=\frac{a_4}{a_3}\\
+& R^{\ast}_1=\frac{a_4}{a_3}\\
 & a_5 R(1-R)-a_6 H R-a_7 R=0 \\
 & \frac{a_4}{a_3}\cdot(a_5-a_5\cdot \frac{a_4}{a_3}-a_6\cdot H -a_7)=0 \\
-& H^\ast_2=\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6}
+& H^{\ast}_2=\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6}
 \end{aligned}
 $$
 
@@ -86,9 +86,9 @@ Finally, $H^{\ast}_2$ can be substituted in the equation $\dot{M}=0$ to obtain $
 
 $$
 \begin{aligned}
-& H^\ast_2=\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6}\\
+& H^{\ast}_2=\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6}\\
 & 1+a_1 M(1-M)-a_2 M H_2=0 \\
-& M^\ast_{3,4}=(\frac{1}{2}-\frac{a_2}{2a_1}H_2^\ast)\pm \sqrt{(\frac{a_2}{a_1}H_2-1)^2+\frac{1}{a_1}}
+& M^{\ast}_{3,4}=(\frac{1}{2}-\frac{a_2}{2a_1}H_2^{\ast})\pm \sqrt{(\frac{a_2}{a_1}H_2-1)^2+\frac{1}{a_1}}
 \end{aligned}
 $$
 
@@ -125,7 +125,7 @@ $$
 \begin{align}
     & (M^{\ast}_1,H^{\ast}_1,R^{\ast}_2)=(\frac{1}{2}+\sqrt{\frac{1}{4}+\frac{1}{a_1}},0,0)\\
     & (M^{\ast}_1,H^{\ast}_1,R^{\ast}_3)=(\frac{1}{2}+\sqrt{\frac{1}{4}+\frac{1}{a_1}},0,1-\frac{a_7}{a_5})\\
-    & (M^\ast_3,H^\ast_2,R^\ast_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^\ast-1)+ \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2^\ast-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})
+    & (M^{\ast}_3,H^{\ast}_2,R^{\ast}_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^{\ast}-1)+ \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2^{\ast}-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})
 \end{align}
 $$
 
