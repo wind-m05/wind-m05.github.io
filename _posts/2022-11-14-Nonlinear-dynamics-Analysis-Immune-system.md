@@ -174,17 +174,152 @@ These fixed points can be biological interpreted as follows.
 - $$E_3^*$$ Every point in set $\mathcal{P}$ which has a density bigger than zero, will converge to this fixed point. The hunting cells hunt down the Malignant cells with a destruction rate of $a_2$. The hunting cells will grow because of the conversion rate from resting cells to hunting cells $a_3$. Depending on the amount of initial resting cells, the hunting cells will increase rapidly until they reach a maximum due to the natural death rate $a_4$. At this point the Hunting cells will be converted back into Resting cells due to the conversion rate from Hunting cells to Resting cells $a_6$. After this process, a steady state is reached where the malignant cells are within a reasonable amount. Biologically, this is the fixed point that occurs in a healthy immune system that naturally declines malignant cell growth.
 
 # Simulation
+The three conditions provided determine the numerical values of the coefficients $$a_1,...,a_7$$. These numerical values are as follows.
+
+|      | $$a_1$$        | $$a_2$$  | $$a_3$$  |$$a_4$$  | $$a_5$$  |$$a_6$$  |$$a_7$$  
+|------------------|------------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+| Condition 1      | $4.5$        | $1$ | $0.5$ |$0.4$  |$0.7$  |$0.2$  |$0.4$  |
+| Condition 2      | $4.5$        | $1$ | $5.0$ |$0.4$  | $0.7$ |$0.1$  |$0.1$  |
+| Condition 3      | $4.5$        | $1$ |$4.8$  | $0.4$ | $3.7$ | $1.9$ | $0.1$ |
+
+For every condition, time simulations will be shown within the range of $t = (0,100) \;[s]$ and the initial conditions $(M_0,H_0,R_0)$ are chosen to be a linear spacing between 0 and 2 with a step of 0.5 and extra points of interest around fixed points.
+
+|      | $$x_1$$        | $$x_2$$  | $$x_3$$  |$$x_4$$  | $$x_5$$  |$$x_6$$  |$$x_7$$ | $$x_8$$| $$x_9$$ | $$x_{10}$$
+|------------------|------------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+| Malignant cell density     | $0$        | $0.5$ | $1$ |$1.5$  |$2.0$  |$1.0$ |$4.0$  | $4.0$  | $4.0$|  $4.0$|
+| Hunting cell density       | $0$        | $0.5$ | $1$ |$1.5$  |$2.0$  |$0$   |$0$  |$0.1$ | $0.1$ | $0.1$ |
+| Resting cell density       | $0$        | $0.5$ | $1$ |$1.5$  |$2.0$  |$2.0$ |$0$ | $0.1$ |$0.5$ | $2.0$  |
+
+These initial conditions yield a solid exploration of the vector field, without cluttering the output. For every condition, the same initial conditions are being used to be able to conclude differences
+
+## Condition 1
+
+![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+
+The time trajectories of initial condition $x_0(1)$ and $x_0(7)$ converge towards fixed point $E^*_1$ and the trajectories of initial conditions $x_0(6)$ converges towards fixed point $E^*_2$, these are special cases and for that reason also hand picked, because it shows that once the tuple $(M,H,R)$ starts on the M axis, it stays on the M axis. Similarly, once $(M,H,R)$ starts on the $(M,0,R)$ plane it converges towards fixed point $E^*_2$. Every other initial condition spirals towards the fixed point $E^*_3$, which implies tumor remission in a cyclic pattern.
+
+## Condition 2
+
+![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+
+The time trajectories of initial condition $x_0(1)$ and $x_0(7)$ converge towards fixed point $E^*_1$ and the trajectories of initial conditions $x_0(6)$ converges towards fixed point $E^*_2$, these are special cases and for that reason also hand picked, because it shows that once the tuple $(M,H,R)$ starts on the M axis, it stays on the M axis. Similarly, once $(M,H,R)$ starts on the $(M,0,R)$ plane it converges towards fixed point $E^*_2$. Every other initial condition spirals towards the fixed point $E^*_3$, which implies tumor remission in a cyclic pattern.
+
+## Condition 3
+
+![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+
+For condition 3 the coefficients $a_5$ and $a_6$ are considerably larger which implies that the growth rate of resting cells have increased as well as the conversion rate from hunting to resting cells. With condition 3, less hunting cells will be available due to the $HR$ term that acts as a balance. The rate of change of hunting cells will therefore overall be smaller that means that the density of hunting cells will overall reach smaller values which can be seen in \autoref{fig:cd3_3d} compared to \autoref{fig:cd2_3d}. The time of convergence is approximately 6 times faster than condition 2, but the malignant cells reach steady state at a higher value. For condition 3, tumor remission with a cyclic pattern can be concluded.
 
 
+![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+
+2D trajectory plot.
 
 
 # Stability and contractive properties
 
+The dynamical system needs to be linearised to detect stability of a multidimensional fixed point in a non-linear system. Therefore the Jacobian matrix must be computed: 
+
+$$
+\begin{aligned}
+&(M, H, R)=\left(x_1, x_2, x_3\right)\\
+&\begin{aligned}
+&\dot{x_1}=f_1\left(x_1, x_2, x_3\right) \\
+&\dot{x_2}=f_2\left(x_1, x_2, x_3\right)
+\end{aligned}\\
+&\begin{aligned}
+&\dot{x_3}=f_3\left(x_1, x_1, x_3\right)
+\end{aligned}\\
+A&=\left[\begin{array}{lll}
+\frac{\partial f_1}{\partial x_1}\left(x_1, x_2, x_3) & \frac{\delta f_1}{\partial x_2}\left(x_1, x_2, x_3) & \frac{\delta f_1}{\partial x_3}\left(x_1, x_2, x_3) \\
+\frac{\partial f_2}{\partial x_1}\left(x_1, x_2, x_3) & \frac{\partial f_2}{\partial x_2}\left(x_1, x_2, x_3) & \frac{\delta f_2}{\partial x_3}\left(x_1, x_2, x_3) \\
+\frac{\partial f_3}{\partial x_1}\left(x_1, x_2, x_3) & \frac{\partial f_3}{\partial x_2}\left(x_1, x_2, x_3) & \frac{\delta f_3}{\delta x_3}\left(x_1, x_2, x_3)
+\end{array}\right]\\
+\ & =\left[\begin{array}{ccc}
+a_1-2 a_1 M-a_2 H & -a_2 M & 0\\
+0 & a_3 R-a_4 & a_3 H \\
+0 & -a_6 R & a_5-2 a_5 R-a_6 H-a_7
+\end{array}\right]
+\end{aligned}
+$$
+
+![placeholder](/assets/images/modeling-dynamics/stability_fp.png)
+
+## Lyapunov stability
+
+The goal is to find a suitable matrix $$P=P^{\top}$$ such that the quadratic function 
+
+$$
+V(M(t), H(t), R(t))=\left(\begin{array}{c}
+M(t)-M_3^* \\
+H(t)-H_3^* \\
+R(t)-R_3^*
+\end{array}\right)^{\top} P\left(\begin{array}{c}
+M(t)-M_3^* \\
+H(t)-H_3^* \\
+R(t)-R_3^*
+\end{array}\right) 
+$$
+
+serves as a Lyapanov function to prove stability of the fixed point $$E^*_3$$ under condition 3. Since the Jacobian matrix is computed in question 3, the system can be seen as a linear autonomous system $\dot{\xi}=A\xi$ . Where $\xi$ is the perturbation around the fixed point $E^*_3$ given by $\xi = x - x^*$. The suitable value of P can now be solved using convex optimization techniques. For this reason, a mathematical optimization toolbox in Matlab called Yalmip is used to solve semidefinite programming problems using Mosek as a mathematical solver. To following constraints are considered:
+
+
+- $P=P^{\top}\succ 0$
+- $A^{\top} P + P A \prec 0$
+
+Implementing these constraints gave the following result:
+
+$$
+P=\begin{bmatrix}
+0.0855 & 0.0150 & 0.0016\\
+0.0150 & 0.0214 & 0.0170\\
+0.0016 & 0.0170 & 0.8931
+\end{bmatrix}   
+$$
+
+The matrix $P$ can be substituted in \autoref{eq:lyapanov}. This Lyapanov function holds since $V(x^*)=0$ and $V(x)'<0$. Now that the Lyapanov function is computed, the maximum $\gamma$ in set $\mathcal{V_\gamma}$ can be determined.
+
+$$
+\mathcal{V}_\gamma:=\left\{(M, H, R) \in \mathbb{R}^3 \mid V(M, H, R) \leq \gamma\right\}
+$$
+
+The maximum level set $\gamma$ can be found via optimization. Here the objective is to maximize $\gamma$ using the following constraints:
+
+
+- $\left(\begin{array}{c}
+M(t)-M_3^* \\
+H(t)-H_3^* \\
+R(t)-R_3^*
+\end{array}\right)^{\top} P\left(\begin{array}{c}
+M(t)-M_3^* \\
+H(t)-H_3^* \\
+R(t)-R_3^*
+\end{array}\right) \leq \gamma$
+- $M(t),H(t),R(t) > 0$
+- $\gamma>0$
+
+Level sets of the 4-D Lyapunov function can be interpreted as spheres where the maximum $\gamma$ will barely touch the boundaries of set $\mathcal{P}$, since initial conditions outside of the set $\mathcal{P}$ or on the $M,R$ plane won't converge to $E_3$. The maximum value for the level set of $V(M(t),H(t),R(t))$ and for whom all initial trajectories on this level set still converge is $\gamma_{max}=3.42$.
+
+
+
 # Time delayed system
 
-# Stabilization
+The locations of the fixed points themselves do not change due to the time delay, because these fixed points are solely dependent on the ratio between coefficients $(a_1, ... ,a_7)$ and assume all time dependant behaviour have died out i.e. the system is not moving $(\dot{M},\dot{H},\dot{R}) = (0,0,0)$. However, the behaviour around these fixed points do change with respect to the time delay. 
 
+![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+
+The fixed points are still the same as for condition 3 and even though the spiral attraction converts into a limit cycle for a specific tau, the fixed point is still what most trajectories are attracted towards.
+
+
+There are 2 bifurcation values that are of interest in this time delayed model. One bifurcation appears between $\tau = 0.2$ and $\tau = 0.3$ for which the fixed point is not an attractive fixed point since the trajectory turns into a limit cycle which orbits around a specific circumference. The higher the time delay the larger this circumference. This bifurcation can be classified by the Hopf bifurcation. The other bifurcation occurs when the circumference of the limit cycle becomes too large such that the trajectory will be pushed out of the set $\mathcal{P}$ which causes the simulation to crash. The critical point is $\tau =  0.84932$. An example of the 2D time trajectory can be seen in \autoref{fig:bifurcation_tau}.
+
+![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+
+![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+
+![placeholder](/assets/images/modeling-dynamics/placeholder.png)
 # Conclusion & Discussion
+
 ## Conclusion
 ## Discussion
 

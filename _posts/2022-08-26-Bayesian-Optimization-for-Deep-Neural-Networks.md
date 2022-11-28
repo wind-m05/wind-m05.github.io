@@ -2,7 +2,7 @@
 layout: article
 title: "Bayesian Optimization for discrete hyperparameters in NARX model "
 mathjax: true
-tags: test
+tags: Bayesian-Optimization Gaussian-Processes Neural-Networks Machine-Learning
 show_subscribe: false
 ---
 `Work in progress`{:.warning}
@@ -55,11 +55,11 @@ Coming soon
 Currently the different libraries, [bayes_opt](https://github.com/wind-m05/BayesianOptimization) , [botorch](https://botorch.org/) and [Ax](https://ax.dev/) are experimented with and checked for suitability for discrete hyperparameter tuning.
 
 ### Hyper parameters
-Coming soon
+`Work in progress`{:.warning}
 ### Acquisition function
-Coming soon
+`Work in progress`{:.warning}
 ### Kernel selection
-Coming soon
+`Work in progress`{:.warning}
 ### Activation function selection
-Coming soon
+`Work in progress`{:.warning}
 
