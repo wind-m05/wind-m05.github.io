@@ -197,11 +197,11 @@ These initial conditions yield a solid exploration of the vector field, without 
 
 ## Condition 1
 
-![condition13d \label{condition13d}](/assets/images/modeling-dynamics/condition1.png)
+![condition13d](/assets/images/modeling-dynamics/condition1.png){#fig:label}
 
 ![condition12d](/assets/images/modeling-dynamics/condition1_2d.png)
 
-See \ref{condition13d}.
+See [@fig:label].
 
 The time trajectories of initial condition $$x_0(1)$$ and $$x_0(7)$$ converge towards fixed point $$E^*_1$$ and the trajectories of initial conditions $$x_0(6)$$ converges towards fixed point $$E^*_2$$, these are special cases and for that reason also hand picked, because it shows that once the tuple $$(M,H,R)$$ starts on the M axis, it stays on the M axis. Similarly, once $$(M,H,R)$$ starts on the $$(M,0,R)$$ plane it converges towards fixed point $$E^*_2$$. Every other initial condition spirals towards the fixed point $$E^*_3$$, which implies tumor remission in a cyclic pattern.
 
