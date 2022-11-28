@@ -194,26 +194,27 @@ These initial conditions yield a solid exploration of the vector field, without 
 
 ## Condition 1
 
-![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+![condition13d](/assets/images/modeling-dynamics/condition1.png)
+
+![condition12d](/assets/images/modeling-dynamics/condition1_2d.png)
 
 The time trajectories of initial condition $x_0(1)$ and $x_0(7)$ converge towards fixed point $E^*_1$ and the trajectories of initial conditions $x_0(6)$ converges towards fixed point $E^*_2$, these are special cases and for that reason also hand picked, because it shows that once the tuple $(M,H,R)$ starts on the M axis, it stays on the M axis. Similarly, once $(M,H,R)$ starts on the $(M,0,R)$ plane it converges towards fixed point $E^*_2$. Every other initial condition spirals towards the fixed point $E^*_3$, which implies tumor remission in a cyclic pattern.
 
 ## Condition 2
 
-![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+![condition23d](/assets/images/modeling-dynamics/condition2.png)
+
+![condition22d](/assets/images/modeling-dynamics/condition2_2d.png)
 
 The time trajectories of initial condition $x_0(1)$ and $x_0(7)$ converge towards fixed point $E^*_1$ and the trajectories of initial conditions $x_0(6)$ converges towards fixed point $E^*_2$, these are special cases and for that reason also hand picked, because it shows that once the tuple $(M,H,R)$ starts on the M axis, it stays on the M axis. Similarly, once $(M,H,R)$ starts on the $(M,0,R)$ plane it converges towards fixed point $E^*_2$. Every other initial condition spirals towards the fixed point $E^*_3$, which implies tumor remission in a cyclic pattern.
 
 ## Condition 3
 
-![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+![condition33d](/assets/images/modeling-dynamics/condition3.png)
+
+![condition32d](/assets/images/modeling-dynamics/condition3_2d.png)
 
 For condition 3 the coefficients $a_5$ and $a_6$ are considerably larger which implies that the growth rate of resting cells have increased as well as the conversion rate from hunting to resting cells. With condition 3, less hunting cells will be available due to the $HR$ term that acts as a balance. The rate of change of hunting cells will therefore overall be smaller that means that the density of hunting cells will overall reach smaller values which can be seen in \autoref{fig:cd3_3d} compared to \autoref{fig:cd2_3d}. The time of convergence is approximately 6 times faster than condition 2, but the malignant cells reach steady state at a higher value. For condition 3, tumor remission with a cyclic pattern can be concluded.
-
-
-![placeholder](/assets/images/modeling-dynamics/placeholder.png)
-
-2D trajectory plot.
 
 
 # Stability and contractive properties
@@ -221,27 +222,37 @@ For condition 3 the coefficients $a_5$ and $a_6$ are considerably larger which i
 The dynamical system needs to be linearised to detect stability of a multidimensional fixed point in a non-linear system. Therefore the Jacobian matrix must be computed: 
 
 $$
-\begin{aligned}
-&(M, H, R)=\left(x_1, x_2, x_3\right)\\
-&\begin{aligned}
-&\dot{x_1}=f_1\left(x_1, x_2, x_3\right) \\
-&\dot{x_2}=f_2\left(x_1, x_2, x_3\right)
-\end{aligned}\\
-&\begin{aligned}
-&\dot{x_3}=f_3\left(x_1, x_1, x_3\right)
-\end{aligned}\\
-A&=\left[\begin{array}{lll}
-\frac{\partial f_1}{\partial x_1}\left(x_1, x_2, x_3) & \frac{\delta f_1}{\partial x_2}\left(x_1, x_2, x_3) & \frac{\delta f_1}{\partial x_3}\left(x_1, x_2, x_3) \\
-\frac{\partial f_2}{\partial x_1}\left(x_1, x_2, x_3) & \frac{\partial f_2}{\partial x_2}\left(x_1, x_2, x_3) & \frac{\delta f_2}{\partial x_3}\left(x_1, x_2, x_3) \\
-\frac{\partial f_3}{\partial x_1}\left(x_1, x_2, x_3) & \frac{\partial f_3}{\partial x_2}\left(x_1, x_2, x_3) & \frac{\delta f_3}{\delta x_3}\left(x_1, x_2, x_3)
-\end{array}\right]\\
-\ & =\left[\begin{array}{ccc}
-a_1-2 a_1 M-a_2 H & -a_2 M & 0\\
-0 & a_3 R-a_4 & a_3 H \\
-0 & -a_6 R & a_5-2 a_5 R-a_6 H-a_7
-\end{array}\right]
-\end{aligned}
+(M, H, R)=(x_1, x_2, x_3)
 $$
+
+$$
+\dot{x_1}=f_1\left(x_1, x_2, x_3\right) \\
+\dot{x_2}=f_2\left(x_1, x_2, x_3\right)\\
+\dot{x_3}=f_3\left(x_1, x_1, x_3\right)
+$$
+
+$$
+\left.
+A=
+\begin{bmatrix}
+
+   \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2}  & \frac{\partial f_1}{\partial x_3} \\
+   \frac{\partial f_2}{\partial x_1}  & \frac{\partial f_2}{\partial x_2}  & \frac{\partial f_2}{\partial x_3} \\
+   \frac{\partial f_3}{\partial x_1}  & \frac{\partial f_3}{\partial x_2}  & \frac{\partial f_3}{\partial x_3} 
+\end{bmatrix} \right\vert_{(x_1^{*},x_2^{*},x_3^{*})}
+$$
+
+$$
+
+A=
+\begin{bmatrix}
+
+   a_1-2a_1M-a_2H & -a2M  & 0 \\
+   0 & a3R-a_4  & a_3H \\
+   0 & -a_6R  & a_5-2a_5R-a_6H-a_7 \\
+\end{bmatrix} 
+$$
+
 
 ![placeholder](/assets/images/modeling-dynamics/stability_fp.png)
 
@@ -306,18 +317,15 @@ Level sets of the 4-D Lyapunov function can be interpreted as spheres where the 
 
 The locations of the fixed points themselves do not change due to the time delay, because these fixed points are solely dependent on the ratio between coefficients $(a_1, ... ,a_7)$ and assume all time dependant behaviour have died out i.e. the system is not moving $(\dot{M},\dot{H},\dot{R}) = (0,0,0)$. However, the behaviour around these fixed points do change with respect to the time delay. 
 
-![placeholder](/assets/images/modeling-dynamics/placeholder.png)
 
 The fixed points are still the same as for condition 3 and even though the spiral attraction converts into a limit cycle for a specific tau, the fixed point is still what most trajectories are attracted towards.
 
 
-There are 2 bifurcation values that are of interest in this time delayed model. One bifurcation appears between $\tau = 0.2$ and $\tau = 0.3$ for which the fixed point is not an attractive fixed point since the trajectory turns into a limit cycle which orbits around a specific circumference. The higher the time delay the larger this circumference. This bifurcation can be classified by the Hopf bifurcation. The other bifurcation occurs when the circumference of the limit cycle becomes too large such that the trajectory will be pushed out of the set $\mathcal{P}$ which causes the simulation to crash. The critical point is $\tau =  0.84932$. An example of the 2D time trajectory can be seen in \autoref{fig:bifurcation_tau}.
+There are 2 bifurcation values that are of interest in this time delayed model. One bifurcation appears between $\tau = 0.2$ and $\tau = 0.3$ for which the fixed point is not an attractive fixed point since the trajectory turns into a limit cycle which orbits around a specific circumference. The higher the time delay the larger this circumference. This bifurcation can be classified by the [Hopf bifurcation](https://en.wikipedia.org/wiki/Hopf_bifurcation). The other bifurcation occurs when the circumference of the limit cycle becomes too large such that the trajectory will be pushed out of the set $\mathcal{P}$ which causes the simulation to crash. The critical point is $\tau =  0.84932$. An example of the 2D time trajectory can be seen in \autoref{fig:bifurcation_tau}.
 
-![placeholder](/assets/images/modeling-dynamics/placeholder.png)
+![timedelayed3d](/assets/images/modeling-dynamics/time_delayed_3D.png)
+![timedelayed2d](/assets/images/modeling-dynamics/time_delayed.png)
 
-![placeholder](/assets/images/modeling-dynamics/placeholder.png)
-
-![placeholder](/assets/images/modeling-dynamics/placeholder.png)
 # Conclusion & Discussion
 
 ## Conclusion
