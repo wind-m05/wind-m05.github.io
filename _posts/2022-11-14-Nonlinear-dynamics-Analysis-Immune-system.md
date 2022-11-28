@@ -4,12 +4,12 @@ title: "Nonlinear dynamics of the Immune system"
 mathjax: true
 tags: Non-linear Lyapunov-stability Bifurcations Delayed-systems
 show_subscribe: false
-mathjax_autoNumber: true
+mathjax_autoNumber: false
 ---
 
 
 # Summary
-The goal of this project is to gain insight into the dynamic behavior of the immune system. Check stability of fixed points via Lyapunov stability analysis. Simulation with the use of MATLAB have been performed for the original system as well as the time-delayed system. Three clinical conditions are given and the response of the immune system is determined for each of them via simulation with use of MATLAB. For condition 3 also a time-delayed system is simulated for which a Hopf bifurcation is determined. All feasible fixed points in all clinical conditions where all asymptotically stable.
+The goal of this project is to gain insight into the dynamic behavior of the immune system. Check stability of fixed points via Lyapunov stability analysis. Simulations with the use of MATLAB have been performed for the original system as well as the time-delayed system. Three clinical conditions are given and the response of the immune system is determined for each of them. For condition 3 also a time-delayed system is simulated for which a Hopf bifurcation is determined. All feasible fixed points in all clinical conditions where asymptotically stable.
 # Introduction
 <!-- This project was part of the course 'Modeling dynamics' (5SCA0) which was the first modeling course that focussed on non-linear systems. The content of the course was mainly mathematical and therefore not specific towards any engineering field. Examples in mechanical/electrical and chemical engineering have been proposed by defining the dynamic behavior with use of [port-Hamiltonian models](https://www.math.rug.nl/arjan/DownloadPublicaties/ICMvanderSchaft.pdf). -->
 Understanding the interaction between malignant cells and the immune system of an organism deserves quite some attention. A system theoretic perspective on this understanding proves quite useful for studying the dynamic features of tumor growth and to understand the implication on specific treatments. In fact, such a perspective brings valuable insight in some key mechanisms that are used in immunology, oncology and cancer biology. This will be the purpose of this project. The system of nonlinear coupled differential equations are given by:
@@ -102,7 +102,7 @@ $$
 & (M^{\ast}_1,H^{\ast}_1,R^{\ast}_3)=(\frac{1}{2}+\sqrt{\frac{1}{4}+\frac{1}{a_1}},0,1-\frac{a_7}{a_5})\\
 & (M^{\ast}_2,H^{\ast}_1,R^{\ast}_3)=(\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}},0,1-\frac{a_7}{a_5})\\
 & (M^{\ast}_3,H^{\ast}_2,R^{\ast}_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^{\ast}-1)+ \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2^{\ast}-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})\\
-& (M^{\ast}_4,H^{\ast}_2,R^{\ast}_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^{\ast}-1)- \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})\\
+& (M^{\ast}_4,H^{\ast}_2,R^{\ast}_1)=\frac{1}{2}(\frac{a_2}{a_1}H_2^{\ast}-1)- \sqrt{\frac{1}{4}\cdot(\frac{a_2}{a_1}H_2^{\ast}-1)^2+\frac{1}{a_1}},\frac{a_5 a_3 -a_4 a_5 -a_3 a_7}{a_3 a_6},\frac{a_4}{a_3})\\
 \end{aligned}
 $$
 
@@ -114,23 +114,22 @@ The positive invariant set $$\mathcal{P}$$ is defined to be the following:
 $$
     \mathcal{P} := \{(M,H,R) \in \mathbb{R}^3 \;|\; M \geq 0, H \geq 0, R \geq 0 \}
 $$
-Positive invariance implies here that if the initial condition is inside the set, it will never leave the set. Since we are dealing with a physical system, densities cannot be negative, therefore all fixed points must lie within the set P to be feasible. 
 
-In other words, the values of the fixed points require to be in set $\mathcal{P}$.
+Positive invariance implies here that if the initial condition is inside the set, it will never leave the set. Since we are dealing with a physical system, densities cannot be negative, therefore all fixed points must lie within the set $$\mathcal{P}$$ to be feasible. 
 
-
-- Since $R^{\ast}_2$ and $H^{\ast}_1$ are equal to zero, they are feasible.
+In other words, the values of the fixed points require to be in set $\mathcal{P}$. The only fixed points which lie within this set for all coefficients $a_i>0$ are the following:
+<!-- - Since $R^{\ast}_2$ and $H^{\ast}_1$ are equal to zero, they are feasible.
 
 - Because all $a_i$ must be positive, $R^{\ast}_1$ is also feasible.
 
-- $H^{\ast}_2$ and $R^{\ast}_3$ are feasible due to the sufficient condition: $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$. The reasoning behind this condition being sufficient will be further explained in question 3.
+- $H^{\ast}_2$ and $R^{\ast}_3$ are feasible due to the sufficient condition: $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$. The reasoning behind this condition being sufficient will be further explained.
 
 - Parameter $a_1$ and variables $M^{\ast}_{1,2}$ must be positive to be in set $\mathcal{P}$. As a result, only $M^{\ast}_1$ is feasible because: $$\frac{1}{2}<\sqrt{\frac{1}{4}+\frac{1}{a_1}}$$ for any $$a_1>0$$. For this reason, $$M^{\ast}_{2}=\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}}$$ will be negative and hence not feasible.
 
 - Parameters $$a_1,...,a_7$$ and variables $$M^{\ast}_{3,4}$$ must be positive for $$M^{\ast}_{3,4}$$ to be feasible. To prove this, $$\frac{a_2}{a_1}H_2^{\ast}-1$$ is repaced by variable y.  $$M^{\ast}_{3,4}=\frac{1}{2}y \pm \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$$. Here $$\frac{1}{2}y < \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$$ for every $$y\in \mathbb{R}$$ and $a_1>0$. Hence, $$M^{\ast}_{3}$$ will be positive meaning it is feasible and $$M^{\ast}_{4}$$ negative meaning it is unfeasible.   
 
 
-Taking into account all the results above, the following fixed points are in set $\mathcal{P}$: 
+Taking into account all the results above, the following fixed points are in set $\mathcal{P}$:  -->
 
 $$
 \begin{align}
@@ -201,7 +200,7 @@ These initial conditions yield a solid exploration of the vector field, without 
 
 ![condition12d](/assets/images/modeling-dynamics/condition1_2d.png)
 
-Condition 1 inherent coefficients that are by definition not biologically feasible, because the $$\frac{a_4}{a_3}+\frac{a_7}{a_5} < 1$$ inequality does not hold. This implies that condition 1 is not possible and it therefore also causes a fixed point to be excluded from the set $\mathcal{P}$. If the set of conditions were possible, tumor dormancy can be concluded, because a steady state is reached where the malignant, hunting and resting cells remain constant. 
+Condition 1 inherent coefficients that are by definition not biologically feasible, because the $$\frac{a_4}{a_3}+\frac{a_7}{a_5} < 1$$ inequality does not hold. This implies that condition 1 is not possible and it therefore also causes a fixed point to be excluded from the set $\mathcal{P}$. If the set of conditions were possible, tumor dormancy can be concluded, because a steady state is reached where the malignant, hunting and resting cells remain constant and where the malignant cells are $>0.1$. 
 
 ## Condition 2
 
@@ -275,8 +274,7 @@ R(t)-R_3^*
 \end{array}\right) 
 $$
 
-serves as a Lyapanov function to prove stability of the fixed point $$E^*_3$$ under condition 3. Since the Jacobian matrix is computed in question 3, the system can be seen as a linear autonomous system $\dot{\xi}=A\xi$ . Where $\xi$ is the perturbation around the fixed point $E^*_3$ given by $\xi = x - x^*$. The suitable value of P can now be solved using convex optimization techniques. For this reason, a mathematical optimization toolbox in Matlab called Yalmip is used to solve semidefinite programming problems using Mosek as a mathematical solver. To following constraints are considered:
-
+serves as a Lyapanov function to prove stability of the fixed point $$E^*_3$$ under condition 3.The suitable value of P can now be solved using convex optimization techniques. For this reason, a mathematical optimization toolbox in Matlab called Yalmip is used to solve semidefinite programming problems using Mosek as a mathematical solver. To following constraints are considered:
 
 - $P=P^{\top}\succ 0$
 - $A^{\top} P + P A \prec 0$
@@ -291,7 +289,7 @@ P=\begin{bmatrix}
 \end{bmatrix}   
 $$
 
-The matrix $P$ can be substituted in \autoref{eq:lyapanov}. This Lyapanov function holds since $V(x^*)=0$ and $V(x)'<0$. Now that the Lyapanov function is computed, the maximum $\gamma$ in set $\mathcal{V_\gamma}$ can be determined.
+The Lyapanov function for this specific $P$ holds since $V(x^*)=0$ and $V(x)'<0$. Now that the Lyapanov function is computed, the maximum $\gamma$ in set $\mathcal{V_\gamma}$ can be determined.
 
 $$
 \mathcal{V}_\gamma:=\left\{(M, H, R) \in \mathbb{R}^3 \mid V(M, H, R) \leq \gamma\right\}
@@ -314,17 +312,11 @@ R(t)-R_3^*
 
 Level sets of the 4-D Lyapunov function can be interpreted as spheres where the maximum $\gamma$ will barely touch the boundaries of set $\mathcal{P}$, since initial conditions outside of the set $\mathcal{P}$ or on the $M,R$ plane won't converge to $E_3$. The maximum value for the level set of $V(M(t),H(t),R(t))$ and for whom all initial trajectories on this level set still converge is $\gamma_{max}=3.42$.
 
-
-
 # Time delayed system
 
-The locations of the fixed points themselves do not change due to the time delay, because these fixed points are solely dependent on the ratio between coefficients $(a_1, ... ,a_7)$ and assume all time dependant behaviour have died out i.e. the system is not moving $(\dot{M},\dot{H},\dot{R}) = (0,0,0)$. However, the behaviour around these fixed points do change with respect to the time delay. 
+The locations of the fixed points themselves do not change due to the time delay, because these fixed points are solely dependent on the ratio between coefficients $(a_1, ... ,a_7)$ and assume all time dependant behavior have died out i.e. the system is not moving $(\dot{M},\dot{H},\dot{R}) = (0,0,0)$. However, the behavior around these fixed points do change with respect to the time delay. 
 
-
-The fixed points are still the same as for condition 3 and even though the spiral attraction converts into a limit cycle for a specific tau, the fixed point is still what most trajectories are attracted towards.
-
-
-There are 2 bifurcation values that are of interest in this time delayed model. One bifurcation appears between $\tau = 0.2$ and $\tau = 0.3$ for which the fixed point is not an attractive fixed point since the trajectory turns into a limit cycle which orbits around a specific circumference. The higher the time delay the larger this circumference. This bifurcation can be classified by the [Hopf bifurcation](https://en.wikipedia.org/wiki/Hopf_bifurcation). The other bifurcation occurs when the circumference of the limit cycle becomes too large such that the trajectory will be pushed out of the set $\mathcal{P}$ which causes the simulation to crash. The critical point is $\tau =  0.84932$. An example of the 2D time trajectory can be seen in \autoref{fig:bifurcation_tau}.
+One bifurcation appears between $\tau = 0.2$ and $\tau = 0.3$ for which the fixed point is not an attractive fixed point since the trajectory turns into a limit cycle which orbits around a specific circumference. The higher the time delay the larger this circumference. This bifurcation can be classified by the [Hopf bifurcation](https://en.wikipedia.org/wiki/Hopf_bifurcation).
 
 ![timedelayed3d](/assets/images/modeling-dynamics/time_delayed_3D.png)
 ![timedelayed2d](/assets/images/modeling-dynamics/time_delayed.png)
