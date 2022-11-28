@@ -109,7 +109,7 @@ $$
 
 ## Feasibility
 
-The positive invariant set $$\mathcal{P}$$ is defined to be the following:
+The [positive invariant](https://en.wikipedia.org/wiki/Positively_invariant_set) set $$\mathcal{P}$$ is defined to be the following:
 
 $$
     \mathcal{P} := \{(M,H,R) \in \mathbb{R}^3 \;|\; M \geq 0, H \geq 0, R \geq 0 \}
@@ -118,18 +118,6 @@ $$
 Positive invariance implies here that if the initial condition is inside the set, it will never leave the set. Since we are dealing with a physical system, densities cannot be negative, therefore all fixed points must lie within the set $$\mathcal{P}$$ to be feasible. 
 
 In other words, the values of the fixed points require to be in set $\mathcal{P}$. The only fixed points which lie within this set for all coefficients $a_i>0$ are the following:
-<!-- - Since $R^{\ast}_2$ and $H^{\ast}_1$ are equal to zero, they are feasible.
-
-- Because all $a_i$ must be positive, $R^{\ast}_1$ is also feasible.
-
-- $H^{\ast}_2$ and $R^{\ast}_3$ are feasible due to the sufficient condition: $\frac{a_4}{a_3}+\frac{a_7}{a_5}<1$. The reasoning behind this condition being sufficient will be further explained.
-
-- Parameter $a_1$ and variables $M^{\ast}_{1,2}$ must be positive to be in set $\mathcal{P}$. As a result, only $M^{\ast}_1$ is feasible because: $$\frac{1}{2}<\sqrt{\frac{1}{4}+\frac{1}{a_1}}$$ for any $$a_1>0$$. For this reason, $$M^{\ast}_{2}=\frac{1}{2}-\sqrt{\frac{1}{4}+\frac{1}{a_1}}$$ will be negative and hence not feasible.
-
-- Parameters $$a_1,...,a_7$$ and variables $$M^{\ast}_{3,4}$$ must be positive for $$M^{\ast}_{3,4}$$ to be feasible. To prove this, $$\frac{a_2}{a_1}H_2^{\ast}-1$$ is repaced by variable y.  $$M^{\ast}_{3,4}=\frac{1}{2}y \pm \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$$. Here $$\frac{1}{2}y < \sqrt{\frac{1}{4}\cdot y^2+\frac{1}{a_1}}$$ for every $$y\in \mathbb{R}$$ and $a_1>0$. Hence, $$M^{\ast}_{3}$$ will be positive meaning it is feasible and $$M^{\ast}_{4}$$ negative meaning it is unfeasible.   
-
-
-Taking into account all the results above, the following fixed points are in set $\mathcal{P}$:  -->
 
 $$
 \begin{align}
@@ -221,7 +209,7 @@ For condition 3 the coefficients $a_5$ and $a_6$ are considerably larger which i
 
 # Stability and contractive properties
 
-For stability analysis, the dynamical system will be linearised. Therefore the Jacobian matrix must be computed: 
+For stability analysis, the dynamical system will be linearised. Therefore the [Jacobian matrix](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant) must be computed: 
 
 $$
 (M, H, R)=(x_1, x_2, x_3)
@@ -274,7 +262,7 @@ R(t)-R_3^*
 \end{array}\right) 
 $$
 
-serves as a Lyapanov function to prove stability of the fixed point $$E^*_3$$ under condition 3.The suitable value of P can now be solved using convex optimization techniques. For this reason, a mathematical optimization toolbox in Matlab called Yalmip is used to solve semidefinite programming problems using Mosek as a mathematical solver. To following constraints are considered:
+serves as a Lyapanov function to prove stability of the fixed point $$E^*_3$$ under condition 3.The suitable value of P can now be solved using convex optimization techniques. For this reason, a mathematical optimization toolbox in Matlab called [Yalmip](https://yalmip.github.io/) is used to solve semidefinite programming problems using [Mosek](https://en.wikipedia.org/wiki/MOSEK) as a mathematical solver. To following constraints are considered:
 
 - $P=P^{\top}\succ 0$
 - $A^{\top} P + P A \prec 0$
@@ -289,7 +277,7 @@ P=\begin{bmatrix}
 \end{bmatrix}   
 $$
 
-The Lyapanov function for this specific $P$ holds since $V(x^*)=0$ and $V(x)'<0$. Now that the Lyapanov function is computed, the maximum $\gamma$ in set $\mathcal{V_\gamma}$ can be determined.
+The [Lyapanov function](https://en.wikipedia.org/wiki/Lyapunov_function) for this specific $P$ holds since $V(x^*)=0$ and $V(x)'<0$. Now that the Lyapanov function is computed, the maximum $\gamma$ in set $\mathcal{V_\gamma}$ can be determined.
 
 $$
 \mathcal{V}_\gamma:=\left\{(M, H, R) \in \mathbb{R}^3 \mid V(M, H, R) \leq \gamma\right\}
@@ -316,7 +304,7 @@ Level sets of the 4-D Lyapunov function can be interpreted as spheres where the 
 
 The locations of the fixed points themselves do not change due to the time delay, because these fixed points are solely dependent on the ratio between coefficients $(a_1, ... ,a_7)$ and assume all time dependant behavior have died out i.e. the system is not moving $(\dot{M},\dot{H},\dot{R}) = (0,0,0)$. However, the behavior around these fixed points do change with respect to the time delay. 
 
-One bifurcation appears between $\tau = 0.2$ and $\tau = 0.3$ for which the fixed point is not an attractive fixed point since the trajectory turns into a limit cycle which orbits around a specific circumference. The higher the time delay the larger this circumference. This bifurcation can be classified by the [Hopf bifurcation](https://en.wikipedia.org/wiki/Hopf_bifurcation).
+One [bifurcation](https://en.wikipedia.org/wiki/Bifurcation_theory) appears between $\tau = 0.2$ and $\tau = 0.3$ for which the fixed point is not an attractive fixed point since the trajectory turns into a [limit cycle](https://en.wikipedia.org/wiki/Limit_cycle) which orbits around a specific circumference. The higher the time delay the larger this circumference. This bifurcation can be classified by the [Hopf bifurcation](https://en.wikipedia.org/wiki/Hopf_bifurcation).
 
 ![timedelayed3d](/assets/images/modeling-dynamics/time_delayed_3D.png)
 ![timedelayed2d](/assets/images/modeling-dynamics/time_delayed.png)
