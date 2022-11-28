@@ -9,7 +9,7 @@ mathjax_autoNumber: true
 
 
 # Summary
-
+The goal of this project is to gain insight into the dynamic behavior of the immune system. Check stability of fixed points via Lyapunov stability analysis. Simulation with the use of MATLAB have been performed for the original system as well as the time-delayed system. Three clinical conditions are given and the response of the immune system is determined for each of them via simulation with use of MATLAB. For condition 3 also a time-delayed system is simulated for which a Hopf bifurcation is determined. All feasible fixed points in all clinical conditions where all asymptotically stable.
 # Introduction
 <!-- This project was part of the course 'Modeling dynamics' (5SCA0) which was the first modeling course that focussed on non-linear systems. The content of the course was mainly mathematical and therefore not specific towards any engineering field. Examples in mechanical/electrical and chemical engineering have been proposed by defining the dynamic behavior with use of [port-Hamiltonian models](https://www.math.rug.nl/arjan/DownloadPublicaties/ICMvanderSchaft.pdf). -->
 Understanding the interaction between malignant cells and the immune system of an organism deserves quite some attention. A system theoretic perspective on this understanding proves quite useful for studying the dynamic features of tumor growth and to understand the implication on specific treatments. In fact, such a perspective brings valuable insight in some key mechanisms that are used in immunology, oncology and cancer biology. This will be the purpose of this project. The system of nonlinear coupled differential equations are given by:
@@ -197,13 +197,11 @@ These initial conditions yield a solid exploration of the vector field, without 
 
 ## Condition 1
 
-![condition13d](/assets/images/modeling-dynamics/condition1.png){#fig:label}
+![condition13d](/assets/images/modeling-dynamics/condition1.png)
 
 ![condition12d](/assets/images/modeling-dynamics/condition1_2d.png)
 
-See [@fig:label].
-
-The time trajectories of initial condition $$x_0(1)$$ and $$x_0(7)$$ converge towards fixed point $$E^*_1$$ and the trajectories of initial conditions $$x_0(6)$$ converges towards fixed point $$E^*_2$$, these are special cases and for that reason also hand picked, because it shows that once the tuple $$(M,H,R)$$ starts on the M axis, it stays on the M axis. Similarly, once $$(M,H,R)$$ starts on the $$(M,0,R)$$ plane it converges towards fixed point $$E^*_2$$. Every other initial condition spirals towards the fixed point $$E^*_3$$, which implies tumor remission in a cyclic pattern.
+Condition 1 inherent coefficients that are by definition not biologically feasible, because the $$\frac{a_4}{a_3}+\frac{a_7}{a_5} < 1$$ inequality does not hold. This implies that condition 1 is not possible and it therefore also causes a fixed point to be excluded from the set $\mathcal{P}$. If the set of conditions were possible, tumor dormancy can be concluded, because a steady state is reached where the malignant, hunting and resting cells remain constant. 
 
 ## Condition 2
 
@@ -219,12 +217,12 @@ The time trajectories of initial condition $$x_0(1)$$ and $$x_0(7)$$ converge to
 
 ![condition32d](/assets/images/modeling-dynamics/condition3_2d.png)
 
-For condition 3 the coefficients $a_5$ and $a_6$ are considerably larger which implies that the growth rate of resting cells have increased as well as the conversion rate from hunting to resting cells. With condition 3, less hunting cells will be available due to the $HR$ term that acts as a balance. The rate of change of hunting cells will therefore overall be smaller that means that the density of hunting cells will overall reach smaller values which can be seen in [figure](condition33d) compared to \autoref{fig:cd2_3d}. The time of convergence is approximately 6 times faster than condition 2, but the malignant cells reach steady state at a higher value. For condition 3, tumor remission with a cyclic pattern can be concluded.
+For condition 3 the coefficients $a_5$ and $a_6$ are considerably larger which implies that the growth rate of resting cells have increased as well as the conversion rate from hunting to resting cells. With condition 3, less hunting cells will be available due to the $HR$ term that acts as a balance. The rate of change of hunting cells will therefore overall be smaller that means that the density of hunting cells will overall reach smaller values compared to condition 2. The time of convergence is approximately 6 times faster than condition 2, but the malignant cells reach steady state at a higher value. For condition 3, tumor remission with a cyclic pattern can be concluded.
 
 
 # Stability and contractive properties
 
-The dynamical system needs to be linearised to detect stability of a multidimensional fixed point in a non-linear system. Therefore the Jacobian matrix must be computed: 
+For stability analysis, the dynamical system will be linearised. Therefore the Jacobian matrix must be computed: 
 
 $$
 (M, H, R)=(x_1, x_2, x_3)
@@ -259,7 +257,7 @@ A=
 $$
 
 
-![placeholder](/assets/images/modeling-dynamics/stability_fp.png)
+![stability_fp](/assets/images/modeling-dynamics/stability_fp.png)
 
 ## Lyapunov stability
 
@@ -332,10 +330,11 @@ There are 2 bifurcation values that are of interest in this time delayed model. 
 ![timedelayed2d](/assets/images/modeling-dynamics/time_delayed.png)
 
 # Conclusion & Discussion
+## Conclusion 
+Considerable insight into the dynamic behavior of the immune system has been obtained. Depending on the clinical conditions $a_1,...a_7$ biological feasibility can be ensured. For all conditions, the biologically feasible fixed points where asymptotically stable. The only case where asymptotic stability was not ensured is for the time delayed system. In that case, the response is always delayed which results in a limit cycle. The behavior change from asymptotic stability into a limit cycle can be classified as a Hopf bifurcation.
 
-## Conclusion
 ## Discussion
-
+Stabilization of the system is not necessary, because the system itself is already asymptotically stable. However, if the dynamics change over time the complete system can be stabilized by linearising around an operating point. Converting the dynamic model into state-space format and check whether the state space is [stabilizable](https://en.wikipedia.org/wiki/Controllability#:~:text=admissible%20system%20behavior.-,Stabilizability,made%20to%20have%20stable%20dynamics.). Define a control law $\omega = -K\xi$ for which $A-BK$ is [Hurwitz](https://en.wikipedia.org/wiki/Hurwitz_matrix) to obtain asymptotic stability.
 
 # Software
 ## Main code
