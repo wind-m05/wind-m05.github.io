@@ -15,9 +15,9 @@ Understanding the interaction between malignant cells and the immune system of a
 
 $$
 \begin{aligned}
-&\dot{M}=1+a_1 M(1-M)-a_2 M H \\
-&\dot{H}=a_3 H R-a_4 H \\
-&\dot{R}=a_5 R(1-R)-a_6 H R-a_7 R
+&\dot{M}=1+a_1 M(1-M)-a_2 M H \\ 
+&\dot{H}=a_3 H R-a_4 H  \\ 
+&\dot{R}=a_5 R(1-R)-a_6 H R-a_7 R 
 \end{aligned} 
 $$
 
@@ -38,7 +38,7 @@ All indicated parameters $a_i$ are non-negative numbers. In particular,
 - $a_7$ is the natural natural death rate of resting cells.
 
 # Fixed points and biological feasibility
-The fixed points can be determined by solving the equations of the states, because the fixed points in a system are the solutions of the set given in [modelref]() when there is no time dependency. Firstly, the rate of change of density of the hunting cells $\dot{H}=0$ is solved. 
+The fixed points can be determined by solving the system of equations when the derivatives are zero, because the fixed points in a system are the solutions when there is no time dependency. Firstly, the rate of change of density of the hunting cells $\dot{H}=0$ is solved. 
 
 $$
 \begin{aligned}
@@ -48,9 +48,7 @@ $$
 \end{aligned}
 $$
 
-Where $$H^{\ast}_1$$ will be substituted into [modelref]() such that $$M^{\ast}_{1,\ 2}$$ can be computed by solving $\dot{M}=0$.
-
-test if proper version
+Where $$H^{\ast}_1$$ will be substituted such that $$M^{\ast}_{1,\ 2}$$ can be computed by solving $\dot{M}=0$.
 
 $$
 \begin{aligned}
@@ -62,7 +60,7 @@ $$
 \end{aligned}
 $$
 
-Next, $H^{\ast}_1$ is substituted into [modelref]() where $\dot{R}=0$ to obtain  $R_2$ and $R_3$: 
+Next, $H^{\ast}_1$ is substituted while $\dot{R}=0$ to obtain  $R_2$ and $R_3$: 
 
 $$
 \begin{aligned}
@@ -107,7 +105,17 @@ $$
 \end{aligned}
 $$
 
-The fixed points stated in the equations above need to be checked on feasibility. In other words, the values of the fixed points require to be in set $\mathcal{P}$ stated in [setp]()
+
+## Feasibility
+
+The positive invariant set $$\mathcal{P}$$ is defined to be the following:
+
+$$
+    \mathcal{P} := \{(M,H,R) \in \mathbb{R}^3 \;|\; M \geq 0, H \geq 0, R \geq 0 \}
+$$
+Positive invariance implies here that if the initial condition is inside the set, it will never leave the set. Since we are dealing with a physical system, densities cannot be negative, therefore all fixed points must lie within the set P to be feasible. 
+
+In other words, the values of the fixed points require to be in set $\mathcal{P}$.
 
 
 - Since $R^{\ast}_2$ and $H^{\ast}_1$ are equal to zero, they are feasible.
@@ -131,13 +139,7 @@ $$
 \end{align}
 $$
 
-## Feasibility
-The positive invariant set $$\mathcal{P}$$ is defined to be the following:
-
-$$
-    \mathcal{P} := \{(M,H,R) \in \mathbb{R}^3 \;|\; M \geq 0, H \geq 0, R \geq 0 \}
-$$
-Positive invariance implies here that if the initial condition is inside the set, it will never leave the set. Since we are dealing with a physical system, densities cannot be negative, therefore all fixed points must lie within the set P to be feasible. This is the case under the following conditions:
+This is the case under the following conditions:
 
 - Fixed point $$(M^{*}_1,H^{*}_1,R^{*}_2)$$ is feasible for every $$a_i>0$$.
 - Fixed point $$(M^{*}_1,H^{*}_1,R^{*}_3)$$ is feasible for $$a_i>0$$ , except for $$R_2$$ which is only feasible if $$\frac{a_7}{a_5} \leq 1$$. 
@@ -206,7 +208,7 @@ The time trajectories of initial condition $x_0(1)$ and $x_0(7)$ converge toward
 
 ![condition22d](/assets/images/modeling-dynamics/condition2_2d.png)
 
-The time trajectories of initial condition $x_0(1)$ and $x_0(7)$ converge towards fixed point $E^*_1$ and the trajectories of initial conditions $x_0(6)$ converges towards fixed point $E^*_2$, these are special cases and for that reason also hand picked, because it shows that once the tuple $(M,H,R)$ starts on the M axis, it stays on the M axis. Similarly, once $(M,H,R)$ starts on the $(M,0,R)$ plane it converges towards fixed point $E^*_2$. Every other initial condition spirals towards the fixed point $E^*_3$, which implies tumor remission in a cyclic pattern.
+The time trajectories of initial condition $$x_0(1)$$ and $$x_0(7)$$ converge towards fixed point $$E^*_1$$ and the trajectories of initial conditions $$x_0(6)$$ converges towards fixed point $$E^*_2$$, these are special cases and for that reason also hand picked, because it shows that once the tuple $$(M,H,R)$$ starts on the M axis, it stays on the M axis. Similarly, once $(M,H,R)$ starts on the $(M,0,R)$ plane it converges towards fixed point $$E^*_2$$. Every other initial condition spirals towards the fixed point $$E^*_3$$, which implies tumor remission in a cyclic pattern.
 
 ## Condition 3
 
@@ -214,7 +216,7 @@ The time trajectories of initial condition $x_0(1)$ and $x_0(7)$ converge toward
 
 ![condition32d](/assets/images/modeling-dynamics/condition3_2d.png)
 
-For condition 3 the coefficients $a_5$ and $a_6$ are considerably larger which implies that the growth rate of resting cells have increased as well as the conversion rate from hunting to resting cells. With condition 3, less hunting cells will be available due to the $HR$ term that acts as a balance. The rate of change of hunting cells will therefore overall be smaller that means that the density of hunting cells will overall reach smaller values which can be seen in \autoref{fig:cd3_3d} compared to \autoref{fig:cd2_3d}. The time of convergence is approximately 6 times faster than condition 2, but the malignant cells reach steady state at a higher value. For condition 3, tumor remission with a cyclic pattern can be concluded.
+For condition 3 the coefficients $a_5$ and $a_6$ are considerably larger which implies that the growth rate of resting cells have increased as well as the conversion rate from hunting to resting cells. With condition 3, less hunting cells will be available due to the $HR$ term that acts as a balance. The rate of change of hunting cells will therefore overall be smaller that means that the density of hunting cells will overall reach smaller values which can be seen in [figure](condition33d) compared to \autoref{fig:cd2_3d}. The time of convergence is approximately 6 times faster than condition 2, but the malignant cells reach steady state at a higher value. For condition 3, tumor remission with a cyclic pattern can be concluded.
 
 
 # Stability and contractive properties
@@ -750,6 +752,8 @@ end
 
 # Resources
 ## Books
+[1.] Khalil, H.K. (2014) Nonlinear systems. Upper Saddle River, NJ: Prentice Hall. 
 ## Websites
+[Tutorial on delayed system simulation](http://matlab.imm.uran.ru/mirrors/www.cs.runet.edu/~thompson/webddes/tutorial.html)
 ## Course material
 5CSA0 ~ Modeling Dynamics
