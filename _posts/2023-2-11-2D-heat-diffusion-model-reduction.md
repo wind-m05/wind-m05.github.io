@@ -5,7 +5,7 @@ mathjax: true
 tags: Model-reduction Galerkin-projection POD
 show_subscribe: false
 mathjax_autoNumber: false
-cover: '/assets/images/model-reduction/model_reduction_cover'
+cover: '/assets/images/model-reduction/model_reduction_cover.png'
 ---
 
 This project focusses on describing the temperature distribution evolution of a 2D plate with as few equations as possible. In particular we will be interested in the heat diffusion process that takes place as a result of individual heat loads $u_1$ and $u_2$ applied on the surface. The equations will be approximated by using a Galerkin projection onto the heat diffusion equation. The fourier basis will be exploited to utilize its orthogonality properties. After which the POD basis will be defined from a high dimensional data set to represent the heat diffusion equations in only a few ordinary differential equations. 
@@ -131,8 +131,16 @@ Therefore, a system of completely decoupled ordinary differential equations is f
 
 <div>{%- include extensions/youtube.html id='jOofzffyDSA' -%}</div>
 
+
+![fouriernoinput](/assets/images/model-reduction/fourier_noinput.png)
+
 ## Simulation with input 
 
+![fourierinitial](/assets/images/model-reduction/fourier_initial.png)
+
+![fourierblock](/assets/images/model-reduction/fourier_block.png)
+
+![fourierinput](/assets/images/model-reduction/fourier_input.png)
 <div>{%- include extensions/youtube.html id='jOofzffyDSA' -%}</div>
 
 ## POD basis
@@ -148,10 +156,7 @@ Therefore, a system of completely decoupled ordinary differential equations is f
 
 
 
-![fourierblock](/assets/images/model-reduction/fourier_block.png)
-![fourierinitial](/assets/images/model-reduction/fourier_initial.png)
-![fourierinput](/assets/images/model-reduction/fourier_input.png)
-![fouriernoinput](/assets/images/model-reduction/fourier_noinput.png)
+
 
 ![PODbasis](/assets/images/model-reduction/POD_basis_functions.png)
 ![POD](/assets/images/model-reduction/POD.png)
