@@ -5,13 +5,11 @@ mathjax: true
 tags: System-Identification Loop-shaping Feedforward
 show_subscribe: false
 cover: '/assets/images/pato-control/pato_real.jpg'
-# show_cover: true
-# excerpt_type: html
 ---
 
 ![NARX_model](/assets/images/pato-control/pato_real.jpg)
 
-# Summary
+
 The goal was to achieve an error below  $0.006 \; [rad]$ for non-co-located inertia during constant velocity for a setup that had 2 inertias connected via a torsion spring. Firstly, a non-parametric system identification has been done via the direct method such that a controller can be loop-shaped. The first feedback controller has been down-tuned such that sufficient error can be seen. With the error-profile, the feedforward controller has been tuned in an online setting. After the feedforward parameters have been tuned, the error during constant velocity can be reduced by evaluating the power spectral density and shaping the feedback controller accordingly. The final controller achieved an RMS value of $0.0022 \; [rad]
 $. Which corresponds to roughly $0.003 \; [rad]$, which is the same as the resolution of the quadrature encoder.
 
