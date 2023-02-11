@@ -4,10 +4,9 @@ title: "Motion Control on a fourth order system"
 mathjax: true
 tags: System-Identification Loop-shaping Feedforward
 show_subscribe: false
-cover: '/assets/images/pato-control/pato_real.jpg'
+cover: '/assets/images/pato-control/nyquist_controller2.png'
+/assets/images/pato-control/pato_real.jpg'
 ---
-
-![NARX_model](/assets/images/pato-control/pato_real.jpg)
 
 
 The goal was to achieve an error below  $0.006 \; [rad]$ for non-co-located inertia during constant velocity for a setup that had 2 inertias connected via a torsion spring. Firstly, a non-parametric system identification has been done via the direct method such that a controller can be loop-shaped. The first feedback controller has been down-tuned such that sufficient error can be seen. With the error-profile, the feedforward controller has been tuned in an online setting. After the feedforward parameters have been tuned, the error during constant velocity can be reduced by evaluating the power spectral density and shaping the feedback controller accordingly. The final controller achieved an RMS value of $0.0022 \; [rad]
@@ -41,7 +40,8 @@ The research on 4-th order motion setups have been quite of interest in the cont
 
 ![NARX_model](/assets/images/pato-control/PATO.png)
 
-Where $J_1$ and $J_2$ are the inertias and $k$ is the stiffness of the torsion spring and $d$ is a damping term, $T_i$ is the input torque created by the motor and both the angles $\theta_1$ and $\theta_2$ can be measured via [quadrature encoders](https://en.wikipedia.org/wiki/Incremental_encoder) which have a resolution of $0.003 \; [rad]$.
+Where $J_1$ and $J_2$ are the inertias and $k$ is the stiffness of the torsion spring and $d$ is a damping term, $T_i$ is the input torque created by the motor and both the angles $\theta_1$ and $\theta_2$ can be measured via [quadrature encoders](https://en.wikipedia.org/wiki/Incremental_encoder) which have a resolution of $0.003 \; [rad]$. The actual system is depicted below.
+![NARX_model](/assets/images/pato-control/pato_real.jpg)
 
 ## Constraints
 - The design of electrical circuitry and software implementations of communications between computer and setup are all excluded from this project.
