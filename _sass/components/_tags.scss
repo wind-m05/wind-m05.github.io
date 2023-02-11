@@ -1,4 +1,6 @@
 .site-tags {
+
+  $overwrite-color:     #3f76ff;
   .tag-button {
     @include clickable($text-color-3, $main-color-3, default, default, $text-color-2,$main-color-2, $text-color-2,$main-color-2);
     & > .tag-button__count {
@@ -10,15 +12,15 @@
     }
   }
   .tag-button-1 {
-    @include clickable($text-color-1, rgba($main-color-1, .4), default, default, $text-color-2,$main-color-2, $text-color-2,$main-color-2);
+    @include clickable($text-color-1, rgba($overwrite-color, .4), default, default, $text-color-2,$overwrite-color $text-color-2,$overwrite-color);
   }
   .tag-button-2 {
-    @include clickable($text-color-1, rgba($main-color-1, .55), default, default, $text-color-2,$main-color-2, $text-color-2,$main-color-2);
+    @include clickable($text-color-1, rgba($overwrite-color, .55), default, default, $text-color-2,$overwrite-color, $text-color-2,$overwrite-color);
   }
   .tag-button-3 {
-    @include clickable($text-color-1, rgba($main-color-1, .7), default, default, $text-color-2,$main-color-2, $text-color-2,$main-color-2);
+    @include clickable($text-color-1, rgba($overwrite-color, .7), default, default, $text-color-2,$overwrite-color, $text-color-2,$overwrite-color);
   }
   .tag-button-4 {
-    @include clickable($text-color-1, rgba($main-color-1, .9), default, default, $text-color-2,$main-color-2, $text-color-2,$main-color-2);
+    @include clickable($text-color-1, rgba($overwrite-color, .9), default, default, $text-color-2,$overwrite-color, $text-color-2,$overwrite-color);
   }
 }
