@@ -2,7 +2,7 @@
 
   $overwrite-color:     #3f76ff;
   .tag-button {
-    @include clickable($text-color-3, $main-color-3, default, default, $text-color-2,$main-color-2, $text-color-2,$main-color-2);
+    @include clickable($text-color-3,  $overwrite-color default, default, $text-color-2, $overwrite-color, $text-color-2, $overwrite-color);
     & > .tag-button__count {
       display: inline-block;
       margin-left: map-get($spacers, 1);
