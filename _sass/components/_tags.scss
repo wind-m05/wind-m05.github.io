@@ -1,8 +1,9 @@
 .site-tags {
 
-  $overwrite-color:     #3f76ff;
+  $overwrite-color:     #3971ff;
+  $clicked-color:     #29eaffd1;
   .tag-button {
-    @include clickable($text-color-3,  $overwrite-color default, default, $text-color-2, $overwrite-color, $text-color-2, $overwrite-color);
+    @include clickable($text-color-3,  $main-color-3 default, default, $text-color-2, $clicked-color, $text-color-2, $clicked-color);
     & > .tag-button__count {
       display: inline-block;
       margin-left: map-get($spacers, 1);
@@ -12,15 +13,15 @@
     }
   }
   .tag-button-1 {
-    @include clickable($text-color-1, rgba($overwrite-color, .4), default, default, $text-color-2,$overwrite-color $text-color-2,$overwrite-color);
+    @include clickable($text-color-1, rgba($overwrite-color, .4), default, default, $text-color-2,$clicked-color $text-color-2,$clicked-color);
   }
   .tag-button-2 {
-    @include clickable($text-color-1, rgba($overwrite-color, .55), default, default, $text-color-2,$overwrite-color, $text-color-2,$overwrite-color);
+    @include clickable($text-color-1, rgba($overwrite-color, .55), default, default, $text-color-2,$clicked-color, $text-color-2,$clicked-color);
   }
   .tag-button-3 {
-    @include clickable($text-color-1, rgba($overwrite-color, .7), default, default, $text-color-2,$overwrite-color, $text-color-2,$overwrite-color);
+    @include clickable($text-color-1, rgba($overwrite-color, .7), default, default, $text-color-2,$clicked-color, $text-color-2,$clicked-color);
   }
   .tag-button-4 {
-    @include clickable($text-color-1, rgba($overwrite-color, .9), default, default, $text-color-2,$overwrite-color, $text-color-2,$overwrite-color);
+    @include clickable($text-color-1, rgba($overwrite-color, .9), default, default, $text-color-2,$clicked-color, $text-color-2,$clicked-color);
   }
 }

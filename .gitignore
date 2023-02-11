@@ -8,7 +8,7 @@
 *.swo
 *.log
 *.log.*
-
+*.txt
 /.vscode/
 
 node_modules/
@@ -25,3 +25,5 @@ Gemfile.lock
 _site/
 .jekyll-metadata
 .jekyll-cache/
+
+
