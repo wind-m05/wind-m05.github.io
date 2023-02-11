@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "Model reduction for the 2D heat diffusion equations in a plate using Galerkin projection and POD"
+title: "Model reduction of 2D heat diffusion using Galerkin projection and POD"
 mathjax: true
 tags: Model-reduction Galerkin-projection POD
 show_subscribe: false
@@ -168,46 +168,7 @@ It can be concluded that the shape of the initial temperature profile has a larg
 
 
 # Software
-## Main code
-~~~  matlab
-%% 5CSA0 Tumor growth assignment
-clc, clear all, close all
-
-~~~
-## Functions
-
-### cell_interaction.m
-~~~ matlab
-
-~~~
-
-### coupledfun.m
-~~~ matlab
-
-~~~
-
-### d_cell_interaction.m
-~~~ matlab
-
-~~~
-
-### d_history.m
-~~~ matlab
-
-~~~
-
-### d_coupledfun.m
-~~~ matlab
-
-~~~
-
-### stab_cell_interaction.m
-~~~ matlab
-
-~~~
-
-### stab_coupledfun.m
-~~~ matlab
+If you are interested in the source code from this project, I invite you to take a look at my [Repository]()
 
 ~~~
 
