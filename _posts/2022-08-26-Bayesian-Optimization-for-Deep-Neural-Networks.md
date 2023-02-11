@@ -5,8 +5,9 @@ mathjax: true
 tags: Bayesian-Optimization Gaussian-Processes Neural-Networks Machine-Learning
 show_subscribe: false
 excerpt_type: html
+show_cover: true
 ---
-`Work in progress`{:.warning}
+<!-- `Work in progress`{:.warning} -->
 ![NARX_model](/assets/images/pato-control/pato_real.jpg)
 
 ## Summary
