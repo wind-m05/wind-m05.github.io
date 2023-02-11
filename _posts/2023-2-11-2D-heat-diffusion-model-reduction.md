@@ -2,10 +2,10 @@
 layout: article
 title: "Model reduction for the 2D heat diffusion equations in a plate using Galerkin projection and POD"
 mathjax: true
-tags: Model-reduction Galerkin-projection POD Bifurcations Delayed-systems
+tags: Model-reduction Galerkin-projection POD
 show_subscribe: false
 mathjax_autoNumber: false
-cover: '/assets/images/modeling-dynamics/time_delayed_3D.png'
+cover: '/assets/images/model-reduction/model_reduction_cover'
 ---
 
 This project focusses on describing the temperature distribution evolution of a 2D plate with as few equations as possible. In particular we will be interested in the heat diffusion process that takes place as a result of individual heat loads $u_1$ and $u_2$ applied on the surface. The equations will be approximated by using a Galerkin projection onto the heat diffusion equation. The fourier basis will be exploited to utilize its orthogonality properties. After which the POD basis will be defined from a high dimensional data set to represent the heat diffusion equations in only a few ordinary differential equations. 
@@ -148,9 +148,15 @@ Therefore, a system of completely decoupled ordinary differential equations is f
 
 
 
-![condition33d](/assets/images/modeling-dynamics/condition3.png)
+![fourierblock](/assets/images/model-reduction/fourier_block.png)
+![fourierinitial](/assets/images/model-reduction/fourier_initial.png)
+![fourierinput](/assets/images/model-reduction/fourier_input.png)
+![fouriernoinput](/assets/images/model-reduction/fourier_noinput.png)
 
-![condition32d](/assets/images/modeling-dynamics/condition3_2d.png)
+![PODbasis](/assets/images/model-reduction/POD_basis_functions.png)
+![POD](/assets/images/model-reduction/POD.png)
+![PODdifferent](/assets/images/model-reduction/POD_different.png)
+
 
 
 
