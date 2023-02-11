@@ -12,7 +12,7 @@ The heat diffusion equation
 
 
 ## Youtube extension trial
-<div>{%- include extensions/youtube.html id='jOofzffyDSA&t=2135s' -%}</div>
+<div>{%- include extensions/youtube.html id='jOofzffyDSA&t' -%}</div>
 
 # Introduction
 <!-- This project was part of the course 'Modeling dynamics' (5SCA0) which was the first modeling course that focussed on non-linear systems. The content of the course was mainly mathematical and therefore not specific towards any engineering field. Examples in mechanical/electrical and chemical engineering have been proposed by defining the dynamic behavior with use of [port-Hamiltonian models](https://www.math.rug.nl/arjan/DownloadPublicaties/ICMvanderSchaft.pdf). -->
