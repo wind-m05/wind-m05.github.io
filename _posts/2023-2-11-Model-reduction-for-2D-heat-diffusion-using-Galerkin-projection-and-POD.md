@@ -1,8 +1,8 @@
 ---
 layout: article
-title: "Nonlinear dynamics of the Immune system"
+title: "Model reduction for the 2D heat diffusion equations in a plate using Galerkin projection and POD"
 mathjax: true
-tags: Non-linear Lyapunov-stability Bifurcations Delayed-systems
+tags: Model-reduction Galerkin-projection POD
 show_subscribe: false
 mathjax_autoNumber: false
 cover: '/assets/images/modeling-dynamics/time_delayed_3D.png'
