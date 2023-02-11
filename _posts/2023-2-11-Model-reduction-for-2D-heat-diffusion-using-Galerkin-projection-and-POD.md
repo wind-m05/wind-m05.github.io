@@ -2,7 +2,7 @@
 layout: article
 title: "Model reduction for the 2D heat diffusion equations in a plate using Galerkin projection and POD"
 mathjax: true
-tags: Model-reduction Galerkin-projection POD
+tags: Model-reduction Galerkin-projection POD Bifurcations Delayed-systems
 show_subscribe: false
 mathjax_autoNumber: false
 cover: '/assets/images/modeling-dynamics/time_delayed_3D.png'
