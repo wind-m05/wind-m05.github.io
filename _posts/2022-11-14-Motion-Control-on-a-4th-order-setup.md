@@ -5,7 +5,6 @@ mathjax: true
 tags: System-Identification Loop-shaping Feedforward
 show_subscribe: false
 cover: '/assets/images/pato-control/nyquist_controller2.png'
-/assets/images/pato-control/pato_real.jpg'
 ---
 
 
