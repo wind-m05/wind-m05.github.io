@@ -22,6 +22,6 @@
     @include clickable($text-color-1, rgba($overwrite-color, .7), default, default, $text-color-2,$main-color-3, $text-color-2,$main-color-3 );
   }
   .tag-button-4 {
-    @include clickable($text-color-1, rgba($overwrite-color, .9), default, default, $text-color-2,$main-color-3, $text-color-,$main-color-3 );
+    @include clickable($text-color-1, rgba($overwrite-color, .9), default, default, $text-color-2,$main-color-3, $text-color-2,$main-color-3 );
   }
 }
