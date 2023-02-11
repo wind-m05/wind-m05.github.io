@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Motion Control on a fourth order system"
 mathjax: true
 tags: System-Identification Loop-shaping Feedforward

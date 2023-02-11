@@ -4,6 +4,7 @@ title: "Bayesian Optimization for discrete hyperparameters in NARX model "
 mathjax: true
 tags: Bayesian-Optimization Gaussian-Processes Neural-Networks Machine-Learning
 show_subscribe: false
+excerpt_type: html
 ---
 `Work in progress`{:.warning}
 ![NARX_model](/assets/images/pato-control/pato_real.jpg)
