@@ -5,7 +5,7 @@ mathjax: true
 tags: System-Identification Loop-shaping Feedforward
 show_subscribe: false
 cover: '/assets/images/pato-control/pato_real.jpg'
-show_cover: true
+# show_cover: true
 # excerpt_type: html
 ---
 
