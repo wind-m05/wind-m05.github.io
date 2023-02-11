@@ -168,9 +168,7 @@ It can be concluded that the shape of the initial temperature profile has a larg
 
 
 # Software
-If you are interested in the source code from this project, I invite you to take a look at my [Repository]()
-
-~~~
+If you are interested in the source code from this project, I invite you to take a look at my [Repository](https://github.com/wind-m05/model-reduction-project).
 
 
 ## Course material
