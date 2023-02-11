@@ -8,8 +8,12 @@ mathjax_autoNumber: false
 cover: '/assets/images/modeling-dynamics/time_delayed_3D.png'
 ---
 
+The heat diffusion equation 
 
-The goal of this project is to gain insight into the dynamic behavior of the immune system. Check stability of fixed points via Lyapunov stability analysis. Simulations with the use of MATLAB have been performed for the original system as well as the time-delayed system. Three clinical conditions are given and the response of the immune system is determined for each of them. For condition 3 also a time-delayed system is simulated for which a Hopf bifurcation is determined. All feasible fixed points in all clinical conditions where asymptotically stable.
+
+## Youtube extension trial
+<div>{%- include extensions/youtube.html id='jOofzffyDSA&t=2135s' -%}</div>
+
 # Introduction
 <!-- This project was part of the course 'Modeling dynamics' (5SCA0) which was the first modeling course that focussed on non-linear systems. The content of the course was mainly mathematical and therefore not specific towards any engineering field. Examples in mechanical/electrical and chemical engineering have been proposed by defining the dynamic behavior with use of [port-Hamiltonian models](https://www.math.rug.nl/arjan/DownloadPublicaties/ICMvanderSchaft.pdf). -->
 Understanding the interaction between malignant cells and the immune system of an organism deserves quite some attention. A system theoretic perspective on this understanding proves quite useful for studying the dynamic features of tumor growth and to understand the implication on specific treatments. In fact, such a perspective brings valuable insight in some key mechanisms that are used in immunology, oncology and cancer biology. This will be the purpose of this project. The system of nonlinear coupled differential equations are given by:
