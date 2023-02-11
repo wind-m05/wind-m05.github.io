@@ -6,6 +6,7 @@ tags: Bayesian-Optimization Gaussian-Processes Neural-Networks Machine-Learning
 show_subscribe: false
 ---
 `Work in progress`{:.warning}
+![NARX_model](/assets/images/pato-control/pato_real.jpg)
 
 ## Summary
 Still an ongoing project for discrete hyperparameter tuning of an Artificial Neural Network (ANN) with Bayesian Optimization (BO), where the number of nodes and number of input and output samples are being optimized for prediction and simulation error. 
