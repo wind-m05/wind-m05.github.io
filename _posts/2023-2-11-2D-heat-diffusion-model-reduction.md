@@ -8,7 +8,7 @@ mathjax_autoNumber: false
 cover: '/assets/images/model-reduction/model_reduction_cover.png'
 ---
 
-This project focusses on describing the temperature distribution evolution of a 2D plate with as few equations as possible. In particular we will be interested in the heat diffusion process that takes place as a result of individual heat loads $u_1$ and $u_2$ applied on the surface. The equations will be approximated by using a Galerkin projection onto the heat diffusion equation. The fourier basis will be exploited to utilize its orthogonality properties. After which the POD basis will be defined from a high dimensional data set to represent the heat diffusion equations in only a few ordinary differential equations. 
+This project focusses on describing the temperature distribution evolution of a 2D plate with as few equations as possible. In particular we will be interested in the [heat diffusion](https://en.wikipedia.org/wiki/Heat_equation) process that takes place as a result of individual heat loads $u_1$ and $u_2$ applied on the surface. The equations will be approximated by using a [Galerkin projection](https://en.wikipedia.org/wiki/Galerkin_method) onto the heat diffusion equation. The fourier basis will be exploited to utilize its orthogonality properties. After which the [POD](https://en.wikipedia.org/wiki/Proper_orthogonal_decomposition) basis will be defined from a high dimensional data set to represent the heat diffusion equations in only a few ordinary differential equations. 
 
 # Heat diffusion equation
 Firstly, the given heat diffusion equation is stated as follows.
@@ -53,19 +53,21 @@ $$
 $$
 
 ## Galerkin projection 
-We use the Galerkin projection to derive, for arbitrary $k$ and $l$, an explicit ordinary differential equation for the
-coefficient function $a_{k,l}(t)$ in the spectral expansion given as:
+We use the Galerkin projection to derive, for arbitrary $k$ and $l$, an explicit ordinary differential equation for the coefficient function $a_{k,l}(t)$ in the spectral expansion given as:
+
 $$
     T(x,y,t)=\sum_{k=0}^\infty\sum_{l=0}^\infty a_{k,l}(t)\varphi_{k,l}(x,y)
 $$
 
 The Galerkin projection of the homogeneous model is taken as follows
+
 $$
     \left\langle \rho c \frac{\partial}{\partial t}T(x,y,t),\varphi_{k,l} \right\rangle=
     \left\langle \kappa \left(\frac{\partial^2}{\partial x^2}T(x,y,t)+\frac{\partial^2}{\partial y^2}T(x,y,t)\right) + u(x,y,t),\varphi_{k,l} \right\rangle
 $$
 
 Now, the spectral expansion is substituted into the Galerkin projection. However, the non-negative integers $k$ and $l$ of this spectral expansion are changed to $p$ and $q$ respectively, since $k$ and $l$ in are different. Doing this results in 
+
 $$
     \begin{aligned}
     &\left\langle \rho c \frac{\partial}{\partial t}\sum_{p=0}^\infty\sum_{q=0}^\infty a_{p,q}(t)\varphi_{p,q}(x,y),\varphi_{k,l}(x,y) \right\rangle=\\
@@ -87,7 +89,7 @@ $$
     \kappa\sum_{p=0}^\infty\sum_{q=0}^\infty a_{p,q}\left\langle \ddot\varphi_p\varphi_q + \varphi_p \ddot\varphi_q,\varphi_{k,l}\right\rangle + \left\langle u,\varphi_{k,l} \right\rangle
 $$
 
-Due to the orthonormality of $\varphi_{k,l}$, the summation on the left-hand side of the equation will only result in non-zero values when  $p$ and $q$ are equal to $k$ and $l$ respectively. This gives the following expression for $\dot a_{k,l}$.
+Due to the [orthonormality](https://en.wikipedia.org/wiki/Orthonormality) of $\varphi_{k,l}$, the summation on the left-hand side of the equation will only result in non-zero values when  $p$ and $q$ are equal to $k$ and $l$ respectively. This gives the following expression for $\dot a_{k,l}$.
 
 $$
     \dot a_{k,l} =\frac{\kappa}{\rho c}\sum_{p=0}^\infty\sum_{q=0}^\infty a_{p,q}\left\langle \ddot\varphi_p\varphi_q + \varphi_p \ddot\varphi_q,\varphi_{k,l}\right\rangle + \frac{1}{\rho c}\left\langle u,\varphi_{k,l} \right\rangle
@@ -172,16 +174,17 @@ To test the performance of the POD basis compared to the fourier basis when we s
 
 
 ## Conclusion & Recommendations
-To conclude, the POD basis can drastically reduce the
-model order, however care should be taken with models that vary in time, since the POD basis is only as good as the data that represents the actual spatial-temporal behavior of the true system.
+To conclude, the POD basis can drastically reduce the model order. However, care should be taken with models that vary in time, since the POD basis is only as good as the data that represents the actual spatial-temporal behavior of the true system.
 
 The code can be extended to also work for non-homogeneous heat diffusion. The $\rho(x,y)c(x,y)$ as well as $\kappa(x,y)$ must be continuous and differentiable in $x$ and $y$ in order to model it as a linear PDE. 
 
 # Resources
-##  Software
+
+###  Software
 If you are interested in the source code from this project, I invite you to take a look at my [Repository](https://github.com/wind-m05/model-reduction-project).
-## Tutorials
+
+### Tutorials
 All video lectures of [Steve Brunton](https://www.youtube.com/@Eigensteve) and [Nathan Kutz](https://www.youtube.com/@NathanKutzAMATH/videos) were very helpful in order to understand the basics of POD and model reduction in general.
 
-## Course material
+### Course material
 5LMA0 ~ Model Reduction
