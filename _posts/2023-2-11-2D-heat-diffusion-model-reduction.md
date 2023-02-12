@@ -138,9 +138,6 @@ Three different initial temperature profiles will be experimented with.
 - Block profile
 - Fourier basis profile
 
-<div>{%- include extensions/youtube.html id='GkOMrms2zYk' -%}</div>
-
-
 ## Simulation without input
 
 ![fouriernoinput](/assets/images/model-reduction/fourier_noinput.png)
