@@ -8,7 +8,10 @@ mathjax_autoNumber: false
 cover: '/assets/images/model-reduction/model_reduction_cover.png'
 ---
 
-This project focusses on describing the temperature distribution evolution of a 2D plate with as few equations as possible. In particular we will be interested in the [heat diffusion](https://en.wikipedia.org/wiki/Heat_equation) process that takes place as a result of individual heat loads $u_1$ and $u_2$ applied on the surface. The equations will be approximated by using a [Galerkin projection](https://en.wikipedia.org/wiki/Galerkin_method) onto the heat diffusion equation. The fourier basis will be exploited to utilize its orthogonality properties. After which the [POD](https://en.wikipedia.org/wiki/Proper_orthogonal_decomposition) basis will be defined from a high dimensional data set to represent the heat diffusion equations in only a few ordinary differential equations. 
+This project focusses on describing the temperature distribution evolution of a 2D plate with as few equations as possible. In particular we will be interested in the [heat diffusion](https://en.wikipedia.org/wiki/Heat_equation) process that takes place as a result of individual heat loads $u_1$ and $u_2$ applied on the surface. The equations will be approximated by using a [Galerkin projection](https://en.wikipedia.org/wiki/Galerkin_method) onto the heat diffusion equation. The fourier basis will be exploited to utilize its orthogonality properties. After which the [POD](https://en.wikipedia.org/wiki/Proper_orthogonal_decomposition) basis will be defined from a high dimensional data set to represent the heat diffusion equations in only a few ordinary differential equations. Before we start with the derivations, in the video below you can see the main results.
+
+<div>{%- include extensions/youtube.html id='GkOMrms2zYk' -%}</div>
+
 
 # Heat diffusion equation
 Firstly, the given heat diffusion equation is stated as follows.
@@ -135,10 +138,10 @@ Three different initial temperature profiles will be experimented with.
 - Block profile
 - Fourier basis profile
 
+<div>{%- include extensions/youtube.html id='GkOMrms2zYk' -%}</div>
+
+
 ## Simulation without input
-
-<div>{%- include extensions/youtube.html id='jOofzffyDSA' -%}</div>
-
 
 ![fouriernoinput](/assets/images/model-reduction/fourier_noinput.png)
 
