@@ -31,6 +31,7 @@ For the rest of the project the plate is assumed to be isotropic and homogeneous
 
 ## Fourier basis
 The inner product will be defined as follows:
+
 $$
     \left\langle \varphi_i,\varphi_j \right\rangle:=\int_0^{L_x}\int_0^{L_y}\varphi_i(x,y)\varphi_j(x,y)dydx.
 $$
@@ -155,21 +156,32 @@ The figure above depicts the initial temperature profile that was described thro
 It can be concluded that the shape of the initial temperature profile has a large effect on the accuracy of the truncated model. Truncation of order 3 have very limited performance, whereas truncations of order 10 are able to capture the main dynamics of interest. Order 50 truncations are able to approximate square shapes with reasonably high precision.
 
 # POD basis
-
+To even further reduce the number of ordinary differential equations that are required to represent the diffusion behavior, the [POD](https://en.wikipedia.org/wiki/Proper_orthogonal_decomposition) basis will be used. POD stands for proper orthogonal decomposition, which is a technique to reduce the order of complexity by looking at the [singular value decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) of high dimensional data and only focussing on dominant behavior. In this project the fourier basis with $K=50$ and $L=50$ is used to create a matrix of snapshots. Where the rows represent the spatial data and the columns represent temporal data. Since this problem is 2-dimensional the spatial data is stacked. The SVD is defined as follows.
+$$
+W_{snap}=U \Sigma V^T 
+$$
+Where U and V are unitary rotation matrices and sigma is a diagonal matrix that contains the ordered singular values. After using the singular value decomposition and scaling it by the proper discretization constants, the new basis functions in the most dominant directions will reveal inside of the U matrix. These vectors are also ordered in dominance from left to right. Where the most left vector is the most dominant. The first three dominant shapes are shown below.
 ![PODbasis](/assets/images/model-reduction/POD_basis_functions.png)
+To see the advantage of the POD basis compared to the Fourier basis, I took the block shape as the initial condition. The POD basis can represent block like behavior with $R = 13$ modes compared to $K=50$ and $L=50$ that was required for the fourier basis, because it is not constrained by only sinusoidal functions. Comparison for $R = 5$ and $R = 13$ is shown below.
+
 ![POD](/assets/images/model-reduction/POD.png)
+
+To test the performance of the POD basis compared to the fourier basis when we simulate it with different initial conditions and different input behavior than was shown in the snapshot matrix. This implies that the POD basis must simulate the diffusion behavior with modes that it has not seen before. This is clearly visible in the figure below. In a) the initial condition is the same as in the snapshot matrix, but the input now is constant instead of sinusoidal, which causes the residual compared to b) in the figure above to grow over time. Since the input is different this is to be expected. In the case of b) the input is the same as the snapshot matrix, but the initial condition is forced to be Gaussian. This shows that the POD basis poorly describes the gaussian initial condition, because this mode is not contained in the snapshot matrix. However, after the initial behavior has died out, this scenario resembles the snapshot matrix again since the input is the same.
+
 ![PODdifferent](/assets/images/model-reduction/POD_different.png)
 
 
-## Conclusion
+## Conclusion & Recommendations
+To conclude, the POD basis can drastically reduce the
+model order, however care should be taken with models that vary in time, since the POD basis is only as good as the data that represents the actual spatial-temporal behavior of the true system.
 
-## Recommendations
+The code can be extended to also work for non-homogeneous heat diffusion. The $\rho(x,y)c(x,y)$ as well as $\kappa(x,y)$ must be continuous and differentiable in $x$ and $y$ in order to model it as a linear PDE. 
 
-
-
-# Software
+# Resources
+##  Software
 If you are interested in the source code from this project, I invite you to take a look at my [Repository](https://github.com/wind-m05/model-reduction-project).
-
+## Tutorials
+All video lectures of [Steve Brunton](https://www.youtube.com/@Eigensteve) and [Nathan Kutz](https://www.youtube.com/@NathanKutzAMATH/videos) were very helpful in order to understand the basics of POD and model reduction in general.
 
 ## Course material
 5LMA0 ~ Model Reduction
