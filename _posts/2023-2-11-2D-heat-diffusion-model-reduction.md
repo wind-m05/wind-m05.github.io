@@ -139,6 +139,7 @@ Three different initial temperature profiles will be experimented with.
 - Fourier basis profile
 
 ## Simulation without input
+For animations I would like to refer you to the youtube link on the top of the post.
 
 ![fouriernoinput](/assets/images/model-reduction/fourier_noinput.png)
 
