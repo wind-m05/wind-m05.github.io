@@ -32,10 +32,10 @@ $. Which corresponds to roughly $0.003 \; [rad]$, which is the same as the resol
 
 # Introduction
 ## Why this project?
-This project was part of a course named Control Engineering (4CM00) where the foundations of system identification and controller design have been taught in theory as well as practice.
+This project was part of a course named Control Engineering where the foundations of system identification and controller design have been taught in theory as well as practice.
 
 ## Background
-The research on 4-th order motion setups have been quite of interest in the control field due to its wide implementations in control problems for companies. Applications that show very similar behavior compared to the set-up in this project are for example wafer-steppers, (3D)-printers, pick and place machines and many more. The setup used in this project is referred as the PATO setup which is provided by the TU/e. There are 2 inertias that are connected via a torsion spring and one of the inertias is connected to an electric motor. A schematic of the setup is shown below.
+The research on 4-th order motion setups have been quite of interest in the control field due to its wide implementations in control problems for companies. Applications that show very similar behavior compared to the set-up in this project are for example wafer-steppers, (3D)-printers, pick and place machines and many more. In the setup of this project, there are 2 inertias that are connected via a torsion spring and one of the inertias is connected to an electric motor. A schematic of the setup is shown below.
 
 ![NARX_model](/assets/images/pato-control/PATO.png)
 
@@ -65,7 +65,7 @@ The transfer function for the non-co-located inertia is given by:
 $$\frac{\theta_2}{T_i} = \frac{d s + k}{J_1 J_2 s^4 + (J_1 + J_2) d s^3 + (J_1 + J_2) ks^2}$$
 
 ## Identification theory
-Since every PATO setup is different and exact terms for the damping as well as the stiffness are not exactly known (and change over time), system identification will be performed via the direct method. The reason for this method over the 2 and 3 point method is because the open-loop system is stable. A diagram of how the measurements have been done is shown below.
+Since every setup is different and exact terms for the damping as well as the stiffness are not exactly known (and change over time), system identification will be performed via the direct method. The reason for this method over the 2 and 3 point method is because the open-loop system is stable. A diagram of how the measurements have been done is shown below.
 
 ![direct_method](/assets/images/pato-control/direct_method.png)
 
@@ -232,5 +232,6 @@ The final controller has a notch at exactly $57.6 [Hz]$ due to the resonance tha
 [Discrete time controller implementation tool 'DCtools'](http://cstwiki.wtb.tue.nl/index.php?title=File:Dctools.zip)
 
 ## Course material
-4CM00 ~ Control Engineering
+<!-- 4CM00 ~ Control Engineering -->
+~
 
