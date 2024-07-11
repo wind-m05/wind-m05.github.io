@@ -27,5 +27,4 @@ _site/
 .jekyll-cache/
 
 
-_posts/2022-11-14-Motion-Control-on-a-4th-order-setup.md
-_assets/images/pato-control
+/backup
