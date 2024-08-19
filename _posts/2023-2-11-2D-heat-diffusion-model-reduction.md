@@ -186,6 +186,3 @@ If you are interested in the source code from this project, I invite you to take
 
 ### Tutorials
 All video lectures of [Steve Brunton](https://www.youtube.com/@Eigensteve) and [Nathan Kutz](https://www.youtube.com/@NathanKutzAMATH/videos) were very helpful in order to understand the basics of POD and model reduction in general.
-
-### Course material
-5LMA0 ~ Model Reduction

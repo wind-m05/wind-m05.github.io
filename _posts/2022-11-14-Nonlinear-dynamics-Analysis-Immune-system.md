@@ -737,5 +737,3 @@ end
 [1.] Khalil, H.K. (2014) Nonlinear systems. Upper Saddle River, NJ: Prentice Hall. 
 ## Websites
 [Tutorial on delayed system simulation](http://matlab.imm.uran.ru/mirrors/www.cs.runet.edu/~thompson/webddes/tutorial.html)
-## Course material
-5CSA0 ~ Modeling Dynamics
